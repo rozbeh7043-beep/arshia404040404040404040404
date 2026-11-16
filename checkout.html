@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<link rel="stylesheet" href="font.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تکمیل سفارش و تسویه‌حساب | پخش قطعات خودرو حاج محمدی</title>
+    <link rel="stylesheet" href="fonts/vazirmatn.css" onerror="this.href='https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #0f382c;
+            --light-green: #2e7d32;
+            --light-green-hover: #1b5e20;
+            --accent-orange: #f57c00;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 20px rgba(15, 56, 44, 0.05);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', Tahoma, sans-serif; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+        body { background-color: var(--bg-light); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 25px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .header-inner {
+            max-width: 1250px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .brand-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-logo { width: 46px; height: 46px; border-radius: var(--radius-sm); object-fit: cover; border: 2px solid var(--light-green); }
+        .brand-title { font-size: 16px; font-weight: 800; color: var(--primary-green); }
+        .brand-sub { font-size: 11px; color: var(--text-muted); }
+
+        .btn-back {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #f1f5f9; color: var(--text-dark);
+            text-decoration: none; font-size: 13px; font-weight: 700;
+            padding: 9px 16px; border-radius: var(--radius-md);
+            border: 1px solid var(--border-color); transition: var(--transition-base);
+        }
+        .btn-back:hover { background: #e2e8f0; border-color: #cbd5e1; }
+
+        .stepper-bar {
+            max-width: 600px;
+            margin: 24px auto 10px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .step-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 13px; font-weight: 700; color: var(--text-muted);
+        }
+        .step-item.active { color: var(--primary-green); }
+        .step-item.done { color: var(--light-green); }
+        .step-circle {
+            width: 28px; height: 28px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            background: #e2e8f0; color: #475569; font-size: 12px; font-weight: 800;
+        }
+        .step-item.active .step-circle { background: var(--primary-green); color: white; box-shadow: 0 0 0 4px rgba(15, 56, 44, 0.12); }
+        .step-item.done .step-circle { background: #dcfce7; color: var(--light-green); }
+        .step-line { flex: 1; height: 2px; background: var(--border-color); margin: 0 12px; }
+
+        .checkout-container {
+            max-width: 1250px;
+            width: 100%;
+            margin: 20px auto 50px;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        @media (max-width: 920px) {
+            .checkout-container { grid-template-columns: 1fr; }
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 26px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 24px;
+        }
+        .card-header-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-header-title i {
+            color: var(--light-green);
+            background: #f0fdf4;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+        .full-col { grid-column: 1 / -1; }
+
+        .form-group label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 7px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            background: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text-dark);
+            outline: none;
+            transition: var(--transition-base);
+        }
+        .form-control:focus {
+            background: #ffffff;
+            border-color: var(--light-green);
+            box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.08);
+        }
+
+        .shipping-options { display: flex; flex-direction: column; gap: 12px; }
+        .shipping-card {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 18px; border: 2px solid var(--border-color);
+            border-radius: var(--radius-md); background: #f8fafc;
+            cursor: pointer; transition: var(--transition-base); gap: 12px;
+        }
+        .shipping-card:hover { border-color: #cbd5e1; background: #ffffff; }
+        .shipping-card.selected {
+            border-color: var(--light-green); background: #f0fdf4;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.08);
+        }
+        .shipping-info-right { display: flex; align-items: center; gap: 14px; }
+        .radio-dot {
+            width: 20px; height: 20px; border-radius: 50%;
+            border: 2px solid #94a3b8; display: flex; align-items: center; justify-content: center;
+            background: white; flex-shrink: 0;
+        }
+        .shipping-card.selected .radio-dot { border-color: var(--light-green); }
+        .shipping-card.selected .radio-dot::after {
+            content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--light-green);
+        }
+        .shipping-title { font-size: 14px; font-weight: 800; color: var(--text-dark); margin-bottom: 3px; }
+        .shipping-desc { font-size: 11.5px; color: var(--text-muted); }
+        .shipping-cost-badge { font-size: 12.5px; font-weight: 800; padding: 5px 10px; border-radius: 8px; white-space: nowrap; }
+        .badge-free { background: #dcfce7; color: #166534; }
+        .badge-paid { background: #f1f5f9; color: #334155; }
+        .badge-cod { background: #fff7ed; color: #c2410c; }
+
+        .summary-sticky { position: sticky; top: 90px; }
+        .user-tier-banner {
+            background: #f8fafc; border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); padding: 10px 14px; margin-bottom: 16px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 12px;
+        }
+        .tier-badge-wholesale { background: #dcfce7; color: #15803d; padding: 3px 10px; border-radius: 20px; font-weight: 800; }
+        .tier-badge-retail { background: #e2e8f0; color: #475569; padding: 3px 10px; border-radius: 20px; font-weight: 700; }
+
+        .order-items-list { max-height: 320px; overflow-y: auto; margin-bottom: 18px; padding-left: 4px; }
+        .order-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 0; border-bottom: 1px dashed var(--border-color); gap: 10px;
+        }
+        .order-item-name { font-size: 12.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
+        .order-item-meta { font-size: 11px; color: var(--text-muted); }
+        .mini-qty-box { display: flex; align-items: center; gap: 5px; background: #f1f5f9; padding: 3px 6px; border-radius: 6px; }
+        .mini-qty-btn {
+            background: white; border: 1px solid #cbd5e1; width: 20px; height: 20px; border-radius: 4px;
+            cursor: pointer; font-weight: bold; font-size: 12px; line-height: 1;
+        }
+
+        .invoice-breakdown {
+            background: #f8fafc; border-radius: var(--radius-md); padding: 16px;
+            border: 1px solid var(--border-color); margin-bottom: 18px;
+        }
+        .invoice-row { display: flex; justify-content: space-between; font-size: 13px; color: #475569; margin-bottom: 10px; }
+        .invoice-row.total {
+            border-top: 1.5px solid var(--border-color); padding-top: 12px; margin-bottom: 0;
+            font-size: 16px; font-weight: 900; color: var(--primary-green);
+        }
+
+        .btn-submit-order {
+            width: 100%; background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: white; border: none; padding: 15px; border-radius: var(--radius-md);
+            font-size: 15px; font-weight: 800; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            box-shadow: 0 8px 20px rgba(15, 56, 44, 0.2); transition: var(--transition-base);
+        }
+        .btn-submit-order:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(15, 56, 44, 0.28); }
+
+        .receipt-modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(5px);
+            z-index: 3000; align-items: center; justify-content: center; padding: 20px;
+        }
+        .receipt-card {
+            background: white; width: 100%; max-width: 500px; border-radius: var(--radius-lg);
+            padding: 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); text-align: center;
+        }
+        .success-icon {
+            width: 68px; height: 68px; border-radius: 50%; background: #dcfce7; color: #15803d;
+            display: flex; align-items: center; justify-content: center; font-size: 32px; margin: 0 auto 16px;
+        }
+        .receipt-details-box {
+            background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: var(--radius-md);
+            padding: 16px; margin: 18px 0; text-align: right; font-size: 13px; line-height: 1.9;
+        }
+        .btn-wa-send {
+            width: 100%; background: #25D366; color: white; border: none; padding: 13px;
+            border-radius: var(--radius-md); font-size: 14px; font-weight: 800; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;
+            text-decoration: none;
+        }
+        .receipt-actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="brand-area">
+                <img src="logo.jpg" alt="لوگو پخش حاج محمدی" class="brand-logo" onerror="this.src='https://via.placeholder.com/46?text=پخش';">
+                <div>
+                    <div class="brand-title">پخش قطعات خودرو حاج محمدی</div>
+                    <div class="brand-sub">تکمیل اطلاعات ارسال و ثبت نهایی فاکتور</div>
+                </div>
+            </a>
+
+            <a href="index.html" class="btn-back">
+                <i class="fa-solid fa-arrow-right"></i> بازگشت به کاتالوگ قطعات
+            </a>
+        </div>
+    </header>
+
+    <div class="stepper-bar">
+        <div class="step-item done">
+            <span class="step-circle"><i class="fa-solid fa-check"></i></span>
+            <span>انتخاب قطعات</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item active">
+            <span class="step-circle">۲</span>
+            <span>مشخصات و روش ارسال</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+            <span class="step-circle">۳</span>
+            <span>صدور فاکتور</span>
+        </div>
+    </div>
+
+    <div class="checkout-container">
+        <div>
+            <form id="checkoutForm" onsubmit="submitFinalOrder(event)">
+                <div class="section-card">
+                    <div class="card-header-title">
+                        <i class="fa-solid fa-user-check"></i>
+                        <span>۱. مشخصات خریدار و آدرس تحویل</span>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="custName">نام و نام خانوادگی (یا نام فروشگاه) *</label>
+                            <input type="text" id="custName" class="form-control" placeholder="مثلاً: لوازم یدکی حسینی" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custPhone">شماره موبایل جهت هماهنگی *</label>
+                            <input type="tel" id="custPhone" class="form-control" placeholder="0911..." dir="ltr" style="text-align: right;" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custCity">استان و شهر مقصد *</label>
+                            <select id="custCity" class="form-control" onchange="handleCityChange()" required>
+                                <option value="گنبد کاووس">گلستان - گنبد کاووس (تحویل شهری)</option>
+                                <option value="گرگان">گلستان - گرگان</option>
+                                <option value="مینودشت / آزادشهر">گلستان - مینودشت / آزادشهر / رامیان</option>
+                                <option value="کلاله / گالیکش">گلستان - کلاله / گالیکش / مراوه‌تپه</option>
+                                <option value="آق‌قلا / بندرترکمن">گلستان - آق‌قلا / بندرترکمن / علی‌آباد</option>
+                                <option value="سایر شهرهای کشور">سایر استان‌ها و شهرهای کشور</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custPostal">کد پستی (اختیاری - ویژه ارسال پستی)</label>
+                            <input type="text" id="custPostal" class="form-control" placeholder="۱۰ رقمی بدون خط تیره" dir="ltr" style="text-align: right;">
+                        </div>
+
+                        <div class="form-group full-col">
+                            <label for="custAddress">آدرس دقیق پستی یا آدرس مغازه *</label>
+                            <textarea id="custAddress" rows="2" class="form-control" placeholder="خیابان، کوچه، پلاک یا نام تعمیرگاه/فروشگاه..." required></textarea>
+                        </div>
+
+                        <div class="form-group full-col">
+                            <label for="OrderNotes">توضیحات تکمیلی سفارش (اختیاری)</label>
+                            <input type="text" id="OrderNotes" class="form-control" placeholder="مثلاً: ساعت تحویل یا نام باربری مدنظر...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="card-header-title">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>۲. انتخاب نحوه ارسال مرسوله</span>
+                    </div>
+
+                    <div class="shipping-options">
+                        <div class="shipping-card selected" id="shipCard-gonbad" onclick="selectShipping('gonbad', 0, 'پیک ویژه یا تحویل حضوری گنبد کاووس')">
+                            <div class="shipping-info-right">
+                                <div class="radio-dot"></div>
+                                <div>
+                                    <div class="shipping-title">پیک ویژه شهری / تحویل حضوری (گنبد کاووس)</div>
+                                    <div class="shipping-desc">ارسال سریع در محدوده شهر گنبد کاووس یا تحویل از انبار پخش حاج محمدی</div>
+                                </div>
+                            </div>
+                            <span class="shipping-cost-badge badge-free">رایگان</span>
+                        </div>
+
+                        <div class="shipping-card" id="shipCard-post" onclick="selectShipping('post', 75000, 'پست پیشتاز (سراسر کشور)')">
+                            <div class="shipping-info-right">
+                                <div class="radio-dot"></div>
+                                <div>
+                                    <div class="shipping-title">پست پیشتاز (استان گلستان و سراسر کشور)</div>
+                                    <div class="shipping-desc">تحویل درب منزل یا مغازه طی ۲ الی ۴ روز کاری</div>
+                                </div>
+                            </div>
+                            <span class="shipping-cost-badge badge-paid">۷۵,۰۰۰ تومان</span>
+                        </div>
+
+                        <div class="shipping-card" id="shipCard-tipax" onclick="selectShipping('tipax', 0, 'تیپاکس / باربری (پس‌کرایه)')">
+                            <div class="shipping-info-right">
+                                <div class="radio-dot"></div>
+                                <div>
+                                    <div class="shipping-title">ارسال با تیپاکس یا باربری / اتوبوسرانی</div>
+                                    <div class="shipping-desc">مناسب سفارشات عمده و حجیم (هزینه ارسال هنگام تحویل دریافت می‌شود)</div>
+                                </div>
+                            </div>
+                            <span class="shipping-cost-badge badge-cod">پس‌کرایه</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="summary-sticky">
+            <div class="section-card">
+                <div class="card-header-title">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>خلاصه فاکتور سفارش شما</span>
+                </div>
+
+                <div class="user-tier-banner">
+                    <span>سطح محاسبه قیمت:</span>
+                    <span id="userTierBadge" class="tier-badge-retail">قیمت مصرف‌کننده</span>
+                </div>
+
+                <div class="order-items-list" id="checkoutItemsContainer"></div>
+
+                <div class="invoice-breakdown">
+                    <div class="invoice-row">
+                        <span>تعداد کل اقلام:</span>
+                        <strong id="summaryTotalQty">۰ عدد</strong>
+                    </div>
+                    <div class="invoice-row">
+                        <span>جمع مبلغ قطعات:</span>
+                        <strong id="summarySubtotal">۰ تومان</strong>
+                    </div>
+                    <div class="invoice-row">
+                        <span>هزینه ارسال (<span id="summaryShipName">گنبد کاووس</span>):</span>
+                        <strong id="summaryShipCost" style="color: var(--light-green);">رایگان</strong>
+                    </div>
+                    <div class="invoice-row total">
+                        <span>مبلغ نهایی قابل پرداخت:</span>
+                        <span id="summaryGrandTotal">۰ تومان</span>
+                    </div>
+                </div>
+
+                <button type="submit" form="checkoutForm" class="btn-submit-order">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span>ثبت نهایی سفارش و صدور فاکتور</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="receipt-modal-overlay" id="receiptModal">
+        <div class="receipt-card">
+            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+            <h2 style="font-size: 19px; font-weight: 800; color: var(--primary-green); margin-bottom: 6px;">سفارش شما با موفقیت ثبت شد!</h2>
+            <p style="font-size: 12.5px; color: var(--text-muted);">کد پیگیری فاکتور: <strong id="receiptOrderId" style="color: var(--text-dark);">HM-1001</strong></p>
+
+            <div class="receipt-details-box" id="receiptSummaryText"></div>
+
+            <a href="#" id="whatsappDirectBtn" target="_blank" class="btn-wa-send">
+                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> ارسال فوری فاکتور در واتساپ پخش حاج محمدی
+            </a>
+
+            <div class="receipt-actions-grid">
+                <button type="button" onclick="window.print()" class="btn-back" style="justify-content: center; cursor: pointer;">
+                    <i class="fa-solid fa-print"></i> چاپ فاکتور
+                </button>
+                <a href="index.html" class="btn-back" style="justify-content: center; background: var(--primary-green); color: white; border-color: var(--primary-green);">
+                    <i class="fa-solid fa-house"></i> صفحه اصلی
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- بارگذاری کاتالوگ اصلی برای جلوگیری از دستکاری قیمت در سبد خرید -->
+    <script src="products.js"></script>
+    <script src="products-part2.js"></script>
+    <script src="script-part1.js"></script>
+
+    <script>
+        let selectedShipKey = 'gonbad';
+        let selectedShipCost = 0;
+        let selectedShipLabel = 'پیک ویژه یا تحویل حضوری گنبد کاووس';
+
+        function toEnglishDigits(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // اعتبارسنجی مجدد قیمت‌ها و سقف تعداد از روی کاتالوگ اصلی (ضد دستکاری LocalStorage)
+        function sanitizeAndVerifyCartPrices() {
+            const masterCatalog = loadProducts();
+            const userType = getUserType();
+            const maxAllowed = getMaxAllowedQty();
+            const verifiedCart = [];
+
+            cart.forEach(cartItem => {
+                const officialProduct = masterCatalog.find(p => String(p.id) === String(cartItem.id));
+                if (!officialProduct) return;
+
+                const officialPrice = userType === 'wholesale' ? officialProduct.wholesalePrice : officialProduct.price;
+                let safeQty = parseInt(cartItem.qty, 10) || 1;
+                if (safeQty > maxAllowed) safeQty = maxAllowed;
+                if (safeQty < 1) return;
+
+                verifiedCart.push({
+                    id: officialProduct.id,
+                    code: officialProduct.code,
+                    name: officialProduct.name,
+                    price: officialPrice,
+                    qty: safeQty
+                });
+            });
+
+            cart = verifiedCart;
+            localStorage.setItem('hajMohammadi_cart', JSON.stringify(cart));
+        }
+
+        function checkUserAndAutofill() {
+            let user = JSON.parse(localStorage.getItem('hajMohammadi_loggedUser')) || JSON.parse(localStorage.getItem('poolasa_user'));
+            const tierBadge = document.getElementById('userTierBadge');
+
+            if (user) {
+                if (user.name) document.getElementById('custName').value = user.name;
+                if (user.phone) document.getElementById('custPhone').value = user.phone;
+
+                if (getUserType() === 'wholesale') {
+                    tierBadge.className = 'tier-badge-wholesale';
+                    tierBadge.innerHTML = '<i class="fa-solid fa-handshake"></i> قیمت همکار (عمده)';
+                }
+            }
+        }
+
+        function handleCityChange() {
+            const city = document.getElementById('custCity').value;
+            if (city !== 'گنبد کاووس' && selectedShipKey === 'gonbad') {
+                selectShipping('post', 75000, 'پست پیشتاز (سراسر کشور)');
+            } else if (city === 'گنبد کاووس') {
+                selectShipping('gonbad', 0, 'پیک ویژه یا تحویل حضوری گنبد کاووس');
+            }
+        }
+
+        function selectShipping(key, cost, label) {
+            selectedShipKey = key;
+            selectedShipCost = cost;
+            selectedShipLabel = label;
+
+            document.querySelectorAll('.shipping-card').forEach(c => c.classList.remove('selected'));
+            const activeCard = document.getElementById(`shipCard-${key}`);
+            if (activeCard) activeCard.classList.add('selected');
+
+            renderCheckoutSummary();
+        }
+
+        function updateItemQty(productId, delta) {
+            let idx = cart.findIndex(i => String(i.id) === String(productId));
+            if (idx === -1) return;
+
+            const maxAllowed = getMaxAllowedQty();
+            if (delta > 0 && cart[idx].qty >= maxAllowed) {
+                alert(`حداکثر سقف مجاز برای این کالا ${maxAllowed.toLocaleString('fa-IR')} عدد است.`);
+                return;
+            }
+
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            localStorage.setItem('hajMohammadi_cart', JSON.stringify(cart));
+            renderCheckoutSummary();
+        }
+
+        function renderCheckoutSummary() {
+            sanitizeAndVerifyCartPrices();
+            const container = document.getElementById('checkoutItemsContainer');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align:center; padding:30px 10px; color:#64748b;">
+                        <i class="fa-solid fa-cart-arrow-down" style="font-size:28px; margin-bottom:10px; color:#cbd5e1;"></i>
+                        <p style="font-size:13px;">سبد خرید شما خالی است.</p>
+                        <a href="index.html" style="display:inline-block; margin-top:10px; color:var(--light-green); font-weight:bold; font-size:12.5px;">بازگشت به فروشگاه</a>
+                    </div>
+                `;
+                document.getElementById('summaryTotalQty').innerText = '۰ عدد';
+                document.getElementById('summarySubtotal').innerText = '۰ تومان';
+                document.getElementById('summaryGrandTotal').innerText = '۰ تومان';
+                return;
+            }
+
+            let subtotal = 0;
+            let totalQty = 0;
+
+            cart.forEach(item => {
+                let itemSum = item.price * item.qty;
+                subtotal += itemSum;
+                totalQty += item.qty;
+
+                const row = document.createElement('div');
+                row.className = 'order-item';
+                row.innerHTML = `
+                    <div style="flex:1;">
+                        <div class="order-item-name">${escapeHTML(item.name)}</div>
+                        <div class="order-item-meta">کد: ${escapeHTML(item.code || item.id)} | فی رسمی: ${Number(item.price).toLocaleString('fa-IR')} تومان</div>
+                    </div>
+                    <div class="mini-qty-box">
+                        <button type="button" class="mini-qty-btn" onclick="updateItemQty('${item.id}', 1)">+</button>
+                        <span style="font-size:12px; font-weight:800; min-width:18px; text-align:center;">${item.qty.toLocaleString('fa-IR')}</span>
+                        <button type="button" class="mini-qty-btn" onclick="updateItemQty('${item.id}', -1)">-</button>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
+
+            let grandTotal = subtotal + selectedShipCost;
+
+            document.getElementById('summaryTotalQty').innerText = totalQty.toLocaleString('fa-IR') + ' عدد';
+            document.getElementById('summarySubtotal').innerText = subtotal.toLocaleString('fa-IR') + ' تومان';
+            document.getElementById('summaryShipName').innerText = selectedShipKey === 'gonbad' ? 'گنبد کاووس' : (selectedShipKey === 'post' ? 'پست پیشتاز' : 'تیپاکس');
+
+            const shipCostEl = document.getElementById('summaryShipCost');
+            if (selectedShipKey === 'gonbad') {
+                shipCostEl.innerText = 'رایگان';
+                shipCostEl.style.color = 'var(--light-green)';
+            } else if (selectedShipKey === 'tipax') {
+                shipCostEl.innerText = 'پس‌کرایه (در مقصد)';
+                shipCostEl.style.color = 'var(--accent-orange)';
+            } else {
+                shipCostEl.innerText = selectedShipCost.toLocaleString('fa-IR') + ' تومان';
+                shipCostEl.style.color = 'var(--text-dark)';
+            }
+
+            document.getElementById('summaryGrandTotal').innerText = grandTotal.toLocaleString('fa-IR') + ' تومان';
+        }
+
+       async function submitFinalOrder(e) {
+    e.preventDefault();
+
+    sanitizeAndVerifyCartPrices();
+
+    if (cart.length === 0) {
+        alert('سبد خرید شما خالی است! ابتدا قطعات مورد نظر را به سبد اضافه کنید.');
+        window.location.href = 'index.html';
+        return;
+    }
+
+    const customer = {
+        customerName: document.getElementById('custName').value.trim(),
+        customerPhone: toEnglishDigits(
+            document.getElementById('custPhone').value.trim()
+        ),
+        city: document.getElementById('custCity').value.trim(),
+        postalCode: toEnglishDigits(
+            document.getElementById('custPostal').value.trim()
+        ),
+        address: document.getElementById('custAddress').value.trim(),
+        notes: document.getElementById('OrderNotes').value.trim(),
+
+        // فقط روش انتخابی را می‌فرستیم؛ هزینهٔ ارسال را سرور تعیین می‌کند.
+        shippingMethod: selectedShipKey
+    };
+
+    if (
+        !customer.customerName ||
+        !customer.customerPhone ||
+        !customer.city ||
+        !customer.address
+    ) {
+        alert('لطفاً نام، شماره تماس، شهر و نشانی را کامل وارد کنید.');
+        return;
+    }
+
+    // قیمت، نام و جمع کل از مرورگر ارسال نمی‌شوند.
+    const payload = {
+        ...customer,
+        items: cart.map(item => ({
+            id: item.id,
+            qty: Number(item.qty)
+        }))
+    };
+
+    let savedUser = null;
+    try {
+        savedUser =
+            JSON.parse(localStorage.getItem('hajMohammadi_loggedUser')) ||
+            JSON.parse(localStorage.getItem('poolasa_user'));
+    } catch (_) {
+        savedUser = null;
+    }
+
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+
+    if (savedUser && savedUser.authToken) {
+        headers.Authorization = `Bearer ${savedUser.authToken}`;
+    }
+
+    const submitButton = document.querySelector('button[form="checkoutForm"]');
+    if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.innerText;
+        submitButton.innerText = 'در حال ثبت سفارش...';
+    }
+
+    try {
+        const response = await fetch('/api/orders', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+            throw new Error(data.message || 'ثبت سفارش انجام نشد. لطفاً دوباره تلاش کنید.');
+        }
+
+        // قرارداد پاسخ سرور: { success: true, order: {...} }
+        const serverOrder = data.order || data;
+        const orderId = serverOrder.id || serverOrder.orderId;
+        const serverTotal = Number(serverOrder.totalPrice);
+        const serverSubtotal = Number(serverOrder.subtotal);
+        const serverShippingCost = Number(serverOrder.shippingCost);
+        const serverItems = serverOrder.items;
+
+        // بدون پاسخ معتبر سرور، موفقیت سفارش را اعلام نمی‌کنیم و سبد را پاک نمی‌کنیم.
+        if (
+            !orderId ||
+            !Number.isFinite(serverTotal) ||
+            !Number.isFinite(serverSubtotal) ||
+            !Number.isFinite(serverShippingCost) ||
+            !Array.isArray(serverItems) ||
+            serverItems.length === 0
+        ) {
+            throw new Error(
+                'پاسخ سرور کامل نیست؛ سفارش را تأییدشده فرض نکردیم و سبد خرید پاک نشد.'
+            );
+        }
+
+        const orderDate =
+            serverOrder.date ||
+            new Date().toLocaleDateString('fa-IR') +
+                ' - ' +
+                new Date().toLocaleTimeString('fa-IR', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+        // این فقط یک نسخهٔ محلی برای نمایش است؛ مرجع اصلی سفارش سرور است.
+        const localOrderMirror = {
+            id: orderId,
+            ...customer,
+            shippingCost: serverShippingCost,
+            subtotal: serverSubtotal,
+            totalPrice: serverTotal,
+            items: serverItems,
+            date: orderDate,
+            status: serverOrder.status || 'در انتظار بررسی'
+        };
+
+        try {
+            const savedOrders = JSON.parse(
+                localStorage.getItem('hajMohammadi_orders') || '[]'
+            );
+            savedOrders.unshift(localOrderMirror);
+            localStorage.setItem(
+                'hajMohammadi_orders',
+                JSON.stringify(savedOrders)
+            );
+        } catch (_) {
+            // ثبت محلی صرفاً اختیاری است؛ سفارش در سرور ثبت شده است.
+        }
+
+        const waLines = [
+            '📦 *فاکتور سفارش جدید - پخش حاج محمدی*',
+            `🔖 کد سفارش: ${orderId}`,
+            `👤 مشتری: ${customer.customerName}`,
+            `📞 تماس: ${customer.customerPhone}`,
+            `📍 شهر: ${customer.city}`,
+            `🏠 آدرس: ${customer.address}`,
+            `🚚 روش ارسال: ${selectedShipLabel}`,
+            '------------------------',
+            '🛠 *لیست قطعات درخواستی:*'
+        ];
+
+        serverItems.forEach((item, index) => {
+            const qty = Number(item.qty) || 0;
+            const price = Number(item.price) || 0;
+            waLines.push(
+                `${index + 1}. ${item.name || item.id} ` +
+                `(کد: ${item.code || item.id}) ` +
+                `⬅️ ${qty} عدد (فی: ${price.toLocaleString('fa-IR')} تومان)`
+            );
+        });
+
+        waLines.push('------------------------');
+        waLines.push(
+            `💰 *مبلغ کل فاکتور: ${serverTotal.toLocaleString('fa-IR')} تومان*`
+        );
+
+        if (customer.notes) {
+            waLines.push(`📝 توضیحات: ${customer.notes}`);
+        }
+
+        document.getElementById('whatsappDirectBtn').href =
+            `https://wa.me/989001795050?text=${encodeURIComponent(waLines.join('\n'))}`;
+
+        document.getElementById('receiptOrderId').innerText = orderId;
+        document.getElementById('receiptSummaryText').innerHTML = `
+            <div><strong>نام خریدار:</strong> ${escapeHTML(customer.customerName)} (${escapeHTML(customer.customerPhone)})</div>
+            <div><strong>مقصد و آدرس:</strong> ${escapeHTML(customer.city)} - ${escapeHTML(customer.address)}</div>
+            <div><strong>نحوه ارسال:</strong> ${escapeHTML(selectedShipLabel)}</div>
+            <div><strong>مبلغ کل فاکتور:</strong>
+                <span style="color:var(--light-green); font-weight:800;">
+                    ${serverTotal.toLocaleString('fa-IR')} تومان
+                </span>
+            </div>
+        `;
+
+        cart = [];
+        localStorage.removeItem('hajMohammadi_cart');
+        document.getElementById('receiptModal').style.display = 'flex';
+
+    } catch (error) {
+        alert(error.message || 'خطا در ارتباط با سرور؛ سفارش ثبت نشد و سبد خرید حفظ شد.');
+    } finally {
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.innerText =
+                submitButton.dataset.originalText || 'ثبت سفارش';
+        }
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<link rel="stylesheet" href="font.css">
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title id="pageSeoTitle">مشخصات، قیمت و خرید قطعه | پخش قطعات خودرو حاج محمدی</title>
+    <meta name="description" id="pageSeoDesc" content="خرید عمده و تکی قطعات یدکی خودرو و شیلنگ‌های پولاسا با ضمانت اصالت و ارسال سریع از پخش حاج محمدی">
+    <meta name="keywords" id="pageSeoKeywords" content="پخش حاج محمدی, شیلنگ پولاسا, لوازم یدکی پراید, آینه کوژ, قطعات TSP, خرید عمده لوازم یدکی">
+    <meta name="robots" content="index, follow">
+    
+    <!-- تگ‌های Open Graph برای اشتراک‌گذاری در تلگرام و واتساپ -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" id="ogTitle" content="پخش قطعات خودرو حاج محمدی">
+    <meta property="og:description" id="ogDesc" content="نمایندگی رسمی پولاسا، کوژ و TSP">
+    <meta property="og:image" id="ogImage" content="logo.jpg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- اسکیمای سئو گوگل (JSON-LD Product Schema) -->
+    <script type="application/ld+json" id="productSchemaJson"></script>
+
+    <style>
+        :root {
+            --primary-green: #0f382c;
+            --primary-green-light: #184e3e;
+            --accent-green: #16a34a;
+            --dk-red: #ef4056;
+            --dk-red-hover: #d32f2f;
+            --dk-blue: #19bfd3;
+            --accent-orange: #f57c00;
+            --star-yellow: #f9a825;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-soft: #f1f5f9;
+            --text-main: #0c0c0c;
+            --text-secondary: #3f4064;
+            --text-muted: #81858b;
+            --border-color: #e0e0e2;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.2s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            color: var(--text-main);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* نوار اطلاع‌رسانی بالا */
+        .top-info-bar {
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+            color: #ecfdf5;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .top-info-bar a { color: #86efac; font-weight: 800; }
+
+        /* هدر اصلی سایت */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        .header-inner {
+            max-width: 1360px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .brand-box { display: flex; align-items: center; gap: 12px; }
+        .brand-logo { width: 46px; height: 46px; border-radius: var(--radius-sm); object-fit: cover; border: 2px solid var(--accent-green); }
+        .brand-text h2 { font-size: 1.05rem; font-weight: 800; color: var(--primary-green); }
+        .brand-text span { font-size: 0.72rem; color: var(--text-muted); display: block; }
+
+        .header-actions { display: flex; align-items: center; gap: 10px; }
+        .btn-header {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 15px; border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: #fff; color: var(--text-secondary);
+            font-size: 0.83rem; font-weight: 700; cursor: pointer;
+        }
+        .btn-header.cart-btn { background: var(--primary-green); color: #fff; border-color: var(--primary-green); }
+        .cart-badge {
+            background: #f59e0b; color: #fff; font-size: 0.72rem;
+            padding: 1px 7px; border-radius: 10px; font-weight: 800; display: none;
+        }
+
+        /* کانتینر اصلی دیجی‌کالایی */
+        .dk-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        /* نوار مسیر راهنما (Breadcrumb) */
+        .breadcrumb-nav {
+            padding: 14px 0;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .breadcrumb-nav a:hover { color: var(--primary-green); font-weight: 700; }
+        .breadcrumb-nav span.sep { color: #cbd5e1; }
+
+        /* بخش بالای محصول: چیدمان ۳ ستونه دیجی‌کالا */
+        .dk-product-top {
+            display: grid;
+            grid-template-columns: 380px 1fr 330px;
+            gap: 28px;
+            align-items: start;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ستون راست: گالری تصویر و آیکون‌های کناری */
+        .dk-gallery-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+        .dk-gallery-main-wrap {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .dk-side-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding-top: 8px;
+        }
+        .dk-tool-btn {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: none; background: transparent; color: #424750;
+            font-size: 1.1rem; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; transition: var(--transition);
+        }
+        .dk-tool-btn:hover { background: #f1f5f9; color: var(--dk-red); }
+        .dk-tool-btn.liked { color: var(--dk-red); }
+
+        .dk-main-image-box {
+            flex: 1;
+            aspect-ratio: 3 / 2;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dk-main-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+        .dk-main-image-box:hover img { transform: scale(1.06); }
+
+        .dk-thumbs-row {
+            display: flex;
+            gap: 10px;
+            margin-right: 48px;
+        }
+        .dk-thumb-item {
+            width: 68px; height: 68px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            overflow: hidden; cursor: pointer; padding: 2px;
+            background: #fff; opacity: 0.75; transition: var(--transition);
+        }
+        .dk-thumb-item.active, .dk-thumb-item:hover {
+            border-color: var(--primary-green); opacity: 1;
+        }
+        .dk-thumb-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+
+        /* ستون وسط: عنوان، امتیاز و ویژگی‌ها */
+        .dk-info-col { min-width: 0; }
+        .dk-brand-cat-line {
+            font-size: 0.82rem; font-weight: 700; color: var(--dk-blue);
+            margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+        }
+        .dk-product-title {
+            font-size: 1.25rem; font-weight: 800; color: var(--text-main);
+            margin-bottom: 8px; line-height: 1.55;
+        }
+        .dk-en-subtitle {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.76rem; color: #a1a3a8; margin-bottom: 14px;
+        }
+        .dk-en-subtitle::after {
+            content: ''; flex: 1; height: 1px; background: var(--border-color);
+        }
+
+        .dk-rating-row {
+            display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+            margin-bottom: 18px; font-size: 0.8rem;
+        }
+        .dk-star-box { display: inline-flex; align-items: center; gap: 4px; font-weight: 800; color: var(--text-main); }
+        .dk-star-box i { color: var(--star-yellow); font-size: 0.9rem; }
+        .dk-rating-count { color: var(--text-muted); font-size: 0.75rem; }
+        .dk-pill-link {
+            background: #f1f5f9; color: var(--text-secondary);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700;
+            cursor: pointer; transition: var(--transition);
+        }
+        .dk-pill-link:hover { background: #e2e8f0; }
+
+        /* کادر ویژه سازگاری خودروها */
+        .compatibility-alert {
+            background: #f0fdf4;
+            border: 1.5px solid #bbf7d0;
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+            margin-bottom: 20px;
+        }
+        .compatibility-alert h4 {
+            font-size: 0.85rem; font-weight: 800; color: #166534;
+            margin-bottom: 4px; display: flex; align-items: center; gap: 6px;
+        }
+        .compatibility-alert p {
+            font-size: 0.8rem; color: #15803d; line-height: 1.65;
+        }
+
+        /* شبکه کارت‌های خاکستری ویژگی‌ها (مشابه دیجی‌کالا) */
+        .dk-features-heading {
+            font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;
+        }
+        .dk-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .dk-feature-box {
+            background: #f0f0f1;
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .dk-feature-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+        .dk-feature-val {
+            font-size: 0.8rem; color: var(--text-secondary); font-weight: 800;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        .dk-all-features-btn-wrap {
+            display: flex; align-items: center; justify-content: center;
+            position: relative; margin: 18px 0;
+        }
+        .dk-all-features-btn-wrap::before {
+            content: ''; position: absolute; left: 0; right: 0; height: 1px; background: var(--border-color); z-index: 1;
+        }
+        .dk-all-features-btn {
+            position: relative; z-index: 2; background: #fff;
+            border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+            padding: 8px 18px; font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);
+            cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .dk-all-features-btn:hover { border-color: var(--primary-green); color: var(--primary-green); }
+
+        .dk-return-note {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 0.76rem; color: var(--text-muted); line-height: 1.65;
+            margin-top: 12px;
+        }
+
+        /* ستون چپ: باکس فروشنده و خرید (Buy Box) */
+        .dk-buy-box {
+            background: #f7f7f8;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            position: sticky;
+            top: 84px;
+        }
+        .dk-buy-box-title {
+            font-size: 0.95rem; font-weight: 800; color: var(--text-main); margin-bottom: 14px;
+        }
+        .dk-seller-row {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding-bottom: 14px; border-bottom: 1px solid var(--border-color); margin-bottom: 14px;
+        }
+        .dk-seller-row i { font-size: 1.2rem; color: #424750; margin-top: 3px; }
+        .dk-seller-name { font-size: 0.88rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 6px; }
+        .dk-seller-badge { background: #dcfce7; color: #166534; font-size: 0.68rem; padding: 2px 7px; border-radius: 10px; font-weight: 800; }
+        .dk-seller-perf { font-size: 0.74rem; color: var(--text-muted); margin-top: 4px; }
+        .dk-seller-perf strong { color: #16a34a; }
+
+        .dk-info-item {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.78rem; font-weight: 700; color: var(--text-secondary);
+            padding-bottom: 12px; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;
+        }
+        .dk-info-item i { font-size: 1.05rem; color: var(--primary-green); width: 20px; text-align: center; }
+
+        .dk-price-area {
+            text-align: left;
+            margin: 16px 0 14px;
+        }
+        .dk-old-price-row {
+            display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-bottom: 4px;
+        }
+        .dk-discount-pill {
+            background: var(--dk-red); color: #fff; font-size: 0.74rem; font-weight: 800;
+            padding: 2px 8px; border-radius: 12px;
+        }
+        .dk-old-price {
+            font-size: 0.82rem; color: #a1a3a8; text-decoration: line-through;
+        }
+        .dk-final-price {
+            font-size: 1.35rem; font-weight: 900; color: var(--text-main);
+        }
+        .dk-final-price span { font-size: 0.8rem; font-weight: 700; }
+
+        .dk-btn-add {
+            width: 100%; background: var(--dk-red); color: #fff; border: none;
+            padding: 13px; border-radius: var(--radius-sm); font-size: 0.92rem; font-weight: 800;
+            cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .dk-btn-add:hover { background: var(--dk-red-hover); }
+
+        .dk-qty-controller {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #fff; border: 1.5px solid var(--dk-red); border-radius: var(--radius-sm);
+            padding: 6px 12px;
+        }
+        .dk-qty-btn {
+            background: none; border: none; color: var(--dk-red); font-size: 1.1rem;
+            cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* اسلایدر کالاهای مشابه (پیشنهاد فروشندگان) */
+        .dk-related-box {
+            margin: 28px 0;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            background: #fff;
+        }
+        .dk-section-header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;
+        }
+        .dk-section-title {
+            font-size: 1.02rem; font-weight: 800; color: var(--text-main);
+            position: relative; padding-bottom: 8px;
+        }
+        .dk-section-title::after {
+            content: ''; position: absolute; bottom: 0; right: 0; width: 70px; height: 2.5px; background: var(--dk-red);
+        }
+        .dk-carousel {
+            display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin;
+        }
+        .dk-related-card {
+            min-width: 195px; max-width: 195px; border-left: 1px solid var(--border-color);
+            padding-left: 16px; display: flex; flex-direction: column; justify-content: space-between;
+            cursor: pointer; transition: var(--transition);
+        }
+        .dk-related-card:last-child { border-left: none; }
+        .dk-related-badge { font-size: 0.7rem; font-weight: 800; color: var(--dk-red); margin-bottom: 8px; }
+        .dk-related-img { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; margin-bottom: 10px; background: #f8fafc; }
+        .dk-related-name {
+            font-size: 0.8rem; font-weight: 700; color: var(--text-secondary);
+            display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+            height: 42px; margin-bottom: 8px;
+        }
+        .dk-related-stock { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+        .dk-related-price-row { display: flex; align-items: center; justify-content: space-between; }
+
+        /* نوار تب‌های چسبان دیجی‌کالایی */
+        .dk-tabs-bar {
+            position: sticky;
+            top: 71px;
+            z-index: 900;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 28px;
+            margin-bottom: 28px;
+            overflow-x: auto;
+        }
+        .dk-tab-link {
+            padding: 14px 4px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        .dk-tab-link.active, .dk-tab-link:hover {
+            color: var(--dk-red);
+            border-bottom-color: var(--dk-red);
+        }
+
+        /* بخش‌های محتوایی (معرفی، مشخصات، دیدگاه‌ها، پرسش‌ها) */
+        .dk-content-block {
+            padding: 28px 0;
+            border-bottom: 4px solid #f1f5f9;
+        }
+        .dk-intro-text {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 2;
+            text-align: justify;
+        }
+        .dk-intro-text h3 {
+            font-size: 1rem; font-weight: 800; color: var(--primary-green); margin: 16px 0 8px;
+        }
+        .dk-intro-text ul { padding-right: 20px; margin-top: 8px; }
+
+        /* جدول مشخصات دیجی‌کالایی */
+        .dk-specs-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 24px;
+        }
+        .dk-specs-group-title { font-size: 0.95rem; font-weight: 800; color: var(--text-secondary); }
+        .dk-spec-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.86rem;
+        }
+        .dk-spec-key { color: var(--text-muted); font-weight: 500; }
+        .dk-spec-val { color: var(--text-main); font-weight: 700; }
+
+        /* بخش دیدگاه‌ها و پرسش‌ها (چیدمان ۲ ستونه دیجی‌کالا) */
+        .dk-community-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+        .dk-community-side {
+            position: sticky;
+            top: 135px;
+        }
+        .dk-big-score { font-size: 2.1rem; font-weight: 900; color: var(--text-main); }
+        .dk-big-score span { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+        .dk-stars-row { color: var(--star-yellow); font-size: 1.05rem; margin: 6px 0 16px; display: flex; align-items: center; gap: 4px; }
+        .dk-btn-outline-red {
+            width: 100%; background: #fff; color: var(--dk-red);
+            border: 1.5px solid var(--dk-red); border-radius: var(--radius-sm);
+            padding: 11px; font-size: 0.86rem; font-weight: 800; cursor: pointer;
+            transition: var(--transition);
+        }
+        .dk-btn-outline-red:hover { background: #fff1f2; }
+
+        .dk-sort-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 14px; border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px; font-size: 0.8rem; flex-wrap: wrap; gap: 10px;
+        }
+        .dk-sort-options { display: flex; align-items: center; gap: 14px; }
+        .dk-sort-opt { cursor: pointer; color: var(--text-muted); font-weight: 700; }
+        .dk-sort-opt.active { color: var(--dk-red); }
+
+        .dk-review-card {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .dk-review-header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
+        }
+        .dk-reviewer-info {
+            display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 800; color: var(--text-secondary);
+        }
+        .dk-buyer-badge {
+            background: #dcfce7; color: #15803d; font-size: 0.7rem; font-weight: 800;
+            padding: 2px 8px; border-radius: 6px;
+        }
+        .dk-review-date { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+        .dk-review-body {
+            font-size: 0.88rem; color: var(--text-main); line-height: 1.85; margin-bottom: 14px;
+        }
+        .dk-review-footer {
+            display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--text-muted);
+        }
+        .dk-like-btns { display: flex; align-items: center; gap: 14px; }
+        .dk-like-btn {
+            background: none; border: none; color: var(--text-muted); cursor: pointer;
+            display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem;
+        }
+        .dk-like-btn:hover { color: var(--primary-green); }
+
+        /* باکس پرسش و پاسخ */
+        .dk-qa-reply-box {
+            background: #f8fafc; border-right: 3px solid var(--dk-blue);
+            padding: 10px 14px; border-radius: 6px; margin-top: 10px; font-size: 0.84rem;
+        }
+        .dk-btn-reply-link {
+            color: var(--dk-blue); font-size: 0.8rem; font-weight: 800;
+            background: none; border: none; cursor: pointer; margin-top: 8px;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+
+        /* مودال ثبت دیدگاه و پرسش */
+        .dk-modal-overlay {
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55);
+            z-index: 2500; display: none; align-items: center; justify-content: center; padding: 16px;
+        }
+        .dk-modal-card {
+            background: #fff; width: 100%; max-width: 480px; border-radius: var(--radius-md);
+            padding: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .dk-form-group { margin-bottom: 14px; }
+        .dk-form-group label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; }
+        .dk-input {
+            width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-sm); font-size: 0.85rem; outline: none;
+        }
+        .dk-input:focus { border-color: var(--primary-green); }
+
+        .toast-msg {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            background: var(--primary-green); color: #fff; padding: 12px 22px;
+            border-radius: 10px; font-size: 0.85rem; font-weight: 700; z-index: 3000; display: none;
+        }
+
+        /* ریسپانسیو موبایل و تبلت */
+        @media (max-width: 1024px) {
+            .dk-product-top { grid-template-columns: 1fr; }
+            .dk-buy-box { position: static; }
+            .dk-community-layout, .dk-specs-layout { grid-template-columns: 1fr; gap: 18px; }
+            .dk-community-side { position: static; }
+        }
+        @media (max-width: 640px) {
+            .dk-container { padding: 0 14px 50px; }
+            .dk-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .dk-spec-row { grid-template-columns: 130px 1fr; gap: 10px; font-size: 0.8rem; }
+            .dk-product-title { font-size: 1.05rem; }
+            .dk-thumbs-row { margin-right: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="top-info-bar">
+        <div><i class="fa-solid fa-location-dot"></i> استان گلستان، گنبد کاووس | مرکز پخش قطعات خودرو حاج محمدی</div>
+        <div>سفارشات تلفنی و واتساپ: <a href="tel:09001795050">۰۹۰۰۱۷۹۵۰۵۰</a></div>
+    </aside>
+
+    <header class="main-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-box">
+                <img src="logo.jpg" onerror="this.src='https://via.placeholder.com/46?text=HM'" alt="پخش حاج محمدی" class="brand-logo">
+                <div class="brand-text">
+                    <h2>پخش حاج محمدی</h2>
+                    <span>نمایندگی رسمی پولاسا، کوژ و TSP</span>
+                </div>
+            </a>
+
+            <div class="header-actions">
+                <a href="index.html" class="btn-header">
+                    <i class="fa-solid fa-arrow-right"></i> بازگشت به کاتالوگ
+                </a>
+                <a href="checkout.html" class="btn-header cart-btn">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>سبد خرید و تسویه</span>
+                    <span class="cart-badge" id="headerCartBadge"></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="dk-container">
+        <!-- مسیر راهنمای سئو (Breadcrumb) -->
+        <nav class="breadcrumb-nav" aria-label="مسیر صفحه">
+            <a href="index.html">پخش حاج محمدی</a>
+            <span class="sep">/</span>
+            <a href="index.html">قطعات یدکی خودرو</a>
+            <span class="sep">/</span>
+            <a href="index.html" id="bcCategory">شیلنگ‌های پولاسا</a>
+            <span class="sep">/</span>
+            <strong id="bcProductName" style="color: var(--text-secondary);">...</strong>
+        </nav>
+
+        <!-- بخش بالای صفحه محصول (۳ ستون دیجی‌کالایی) -->
+        <section class="dk-product-top">
+            
+            <!-- ستون ۱ (راست): گالری عکس و ابزارها -->
+            <div class="dk-gallery-col">
+                <div class="dk-gallery-main-wrap">
+                    <div class="dk-side-tools">
+                        <button type="button" class="dk-tool-btn" onclick="this.classList.toggle('liked'); showToast('به لیست علاقه‌مندی‌ها اضافه شد ❤️');" title="افزودن به علاقه‌مندی">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <button type="button" class="dk-tool-btn" onclick="shareProductLink()" title="اشتراک‌گذاری لینک کالا">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                        <button type="button" class="dk-tool-btn" onclick="document.getElementById('sec-specs').scrollIntoView()" title="مشخصات فنی">
+                            <i class="fa-solid fa-list-ul"></i>
+                        </button>
+                        <button type="button" class="dk-tool-btn" onclick="document.getElementById('sec-reviews').scrollIntoView()" title="دیدگاه خریداران">
+                            <i class="fa-regular fa-comment-dots"></i>
+                        </button>
+                    </div>
+
+                    <div class="dk-main-image-box">
+                        <img id="mainProductImg" src="logo.jpg" alt="تصویر قطعه">
+                    </div>
+                </div>
+
+                <div class="dk-thumbs-row" id="thumbsContainer"></div>
+            </div>
+
+            <!-- ستون ۲ (وسط): اطلاعات، سازگاری خودرو و ویژگی‌ها -->
+            <div class="dk-info-col">
+                <div class="dk-brand-cat-line">
+                    <i class="fa-solid fa-certificate"></i>
+                    <span id="prodBrandTop">پولاسا (Poolasa)</span>
+                    <span>/</span>
+                    <span id="prodSubCatTop">قطعات استاندارد خودرو</span>
+                </div>
+
+                <h1 class="dk-product-title" id="prodMainTitle">در حال بارگذاری...</h1>
+
+                <div class="dk-en-subtitle" id="prodEnCode">POOLASA ORIGINAL AUTO PART</div>
+
+                <div class="dk-rating-row">
+                    <div class="dk-star-box">
+                        <i class="fa-solid fa-star"></i>
+                        <span id="topScoreNum">۴.۸</span>
+                    </div>
+                    <span class="dk-rating-count">(امتیاز مکانیک‌ها و خریداران)</span>
+                    <span class="dk-pill-link" onclick="document.getElementById('sec-reviews').scrollIntoView()">
+                        <span id="topReviewCount">۱۲</span> دیدگاه <i class="fa-solid fa-angle-left" style="font-size: 0.65rem;"></i>
+                    </span>
+                    <span class="dk-pill-link" onclick="document.getElementById('sec-qa').scrollIntoView()">
+                        <span id="topQaCount">۴</span> پرسش <i class="fa-solid fa-angle-left" style="font-size: 0.65rem;"></i>
+                    </span>
+                </div>
+
+                <!-- باکس راهنمای «به چه ماشین‌هایی می‌خورد؟» -->
+                <div class="compatibility-alert">
+                    <h4><i class="fa-solid fa-car-side"></i> به چه خودروهایی می‌خورد؟ (سازگاری کامل)</h4>
+                    <p id="compatibleCarsText">در حال بررسی خودروهای سازگار...</p>
+                </div>
+
+                <div class="dk-features-heading">ویژگی‌ها</div>
+                <div class="dk-features-grid" id="featuresGrid"></div>
+
+                <div class="dk-all-features-btn-wrap">
+                    <button type="button" class="dk-all-features-btn" onclick="document.getElementById('sec-specs').scrollIntoView()">
+                        <span>مشاهده همه ویژگی‌ها و ابعاد</span>
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                </div>
+
+                <div class="dk-return-note">
+                    <i class="fa-solid fa-circle-info" style="font-size: 1rem; margin-top: 2px;"></i>
+                    <span>تمامی قطعات عرضه‌شده در پخش حاج محمدی دارای ضمانت اصالت فیزیکی، مقاومت حرارتی استاندارد و گارانتی تعویض شرکتی در صورت هرگونه ایراد ظاهری یا فنی هستند.</span>
+                </div>
+            </div>
+
+            <!-- ستون ۳ (چپ): باکس فروشنده و خرید -->
+            <aside class="dk-buy-box">
+                <div class="dk-buy-box-title">فروشنده</div>
+
+                <div class="dk-seller-row">
+                    <i class="fa-solid fa-store"></i>
+                    <div>
+                        <div class="dk-seller-name">
+                            <span>پخش حاج محمدی</span>
+                            <span class="dk-seller-badge">نمایندگی رسمی</span>
+                        </div>
+                        <div class="dk-seller-perf">
+                            <strong>۱۰۰٪</strong> رضایت خریداران | عملکرد <strong>عالی</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dk-info-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>گارانتی اصالت و ضمانت تعویض شرکتی پولاسا</span>
+                </div>
+
+                <div class="dk-info-item">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>موجود در انبار گنبد کاووس (ارسال فوری سراسری)</span>
+                </div>
+
+                <div class="dk-info-item" style="border-bottom: none; margin-bottom: 0;">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span id="priceTierLabel">نرخ محاسبه‌شده: قیمت مصرف‌کننده</span>
+                </div>
+
+                <div class="dk-price-area">
+                    <div class="dk-old-price-row">
+                        <span class="dk-old-price" id="oldPriceDisplay">۰</span>
+                        <span class="dk-discount-pill" id="discountBadge">۱۰٪ ویژه</span>
+                    </div>
+                    <div class="dk-final-price">
+                        <span id="activePriceDisplay" style="font-size: 1.45rem; font-weight: 900;">۰</span>
+                        <span>تومان</span>
+                    </div>
+                </div>
+
+                <div id="buyActionContainer"></div>
+            </aside>
+        </section>
+
+        <!-- اسلایدر کالاهای مشابه (پیشنهاد فروشندگان) -->
+        <section class="dk-related-box">
+            <div class="dk-section-header">
+                <h2 class="dk-section-title">کالاهای مشابه و پیشنهادی</h2>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">پخش مستقیم حاج محمدی</span>
+            </div>
+            <div class="dk-carousel" id="relatedCarousel"></div>
+        </section>
+
+        <!-- نوار تب‌های چسبان (معرفی | مشخصات | دیدگاه‌ها | پرسش‌ها) -->
+        <nav class="dk-tabs-bar">
+            <a href="#sec-intro" class="dk-tab-link active" onclick="activateTab(this)">معرفی</a>
+            <a href="#sec-specs" class="dk-tab-link" onclick="activateTab(this)">مشخصات و ابعاد</a>
+            <a href="#sec-reviews" class="dk-tab-link" onclick="activateTab(this)">دیدگاه‌ها</a>
+            <a href="#sec-qa" class="dk-tab-link" onclick="activateTab(this)">پرسش‌ها</a>
+        </nav>
+
+        <!-- ۱. بخش معرفی کامل و تخصصی -->
+        <section id="sec-intro" class="dk-content-block">
+            <div class="dk-section-header">
+                <h2 class="dk-section-title">معرفی تخصصی قطعه</h2>
+            </div>
+            <div class="dk-intro-text" id="fullIntroContent"></div>
+        </section>
+
+        <!-- ۲. بخش جدول مشخصات و ابعاد -->
+        <section id="sec-specs" class="dk-content-block">
+            <div class="dk-section-header">
+                <h2 class="dk-section-title">مشخصات فنی و ابعاد</h2>
+            </div>
+            <div class="dk-specs-layout">
+                <div class="dk-specs-group-title">مشخصات کلی و استاندارد</div>
+                <div id="specsTableContainer"></div>
+            </div>
+        </section>
+
+        <!-- ۳. بخش امتیاز و دیدگاه کاربران -->
+        <section id="sec-reviews" class="dk-content-block">
+            <div class="dk-section-header">
+                <h2 class="dk-section-title">امتیاز و دیدگاه کاربران</h2>
+            </div>
+            <div class="dk-community-layout">
+                <div class="dk-community-side">
+                    <div class="dk-big-score">۴.۸ <span>از ۵</span></div>
+                    <div class="dk-stars-row">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span style="font-size: 0.75rem; color: var(--text-muted); margin-right: 6px;">از مجموع امتیاز خریداران</span>
+                    </div>
+                    <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">شما هم درباره کیفیت و نصب این قطعه دیدگاه ثبت کنید</p>
+                    <button type="button" class="dk-btn-outline-red" onclick="openModal('reviewModal')">ثبت دیدگاه</button>
+                </div>
+
+                <div>
+                    <div class="dk-sort-bar">
+                        <div class="dk-sort-options">
+                            <span><i class="fa-solid fa-arrow-down-wide-short"></i> مرتب‌سازی:</span>
+                            <span class="dk-sort-opt active" onclick="sortReviews('newest', this)">جدیدترین</span>
+                            <span class="dk-sort-opt" onclick="sortReviews('helpful', this)">مفیدترین</span>
+                        </div>
+                        <span id="reviewsTotalText" style="color: var(--text-muted);">۰ دیدگاه</span>
+                    </div>
+                    <div id="reviewsListContainer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۴. بخش پرسش و پاسخ -->
+        <section id="sec-qa" class="dk-content-block" style="border-bottom: none;">
+            <div class="dk-section-header">
+                <h2 class="dk-section-title">پرسش‌ها و پاسخ‌های فنی</h2>
+            </div>
+            <div class="dk-community-layout">
+                <div class="dk-community-side">
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 700; margin-bottom: 12px;">
+                        سوالی درباره سازگاری این قطعه با خودروی خود یا نحوه خرید عمده دارید؟
+                    </p>
+                    <button type="button" class="dk-btn-outline-red" onclick="openModal('qaModal')">ثبت پرسش</button>
+                </div>
+
+                <div>
+                    <div class="dk-sort-bar">
+                        <div class="dk-sort-options">
+                            <span><i class="fa-solid fa-comments"></i> پرسش‌های مطرح‌شده توسط تعمیرکاران و مشتریان</span>
+                        </div>
+                        <span id="qaTotalText" style="color: var(--text-muted);">۰ پرسش</span>
+                    </div>
+                    <div id="qaListContainer"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- مودال ثبت دیدگاه جدید -->
+    <div class="dk-modal-overlay" id="reviewModal">
+        <div class="dk-modal-card">
+            <h3 style="font-size: 1rem; font-weight: 800; margin-bottom: 14px;">ثبت دیدگاه درباره این قطعه</h3>
+            <form onsubmit="submitNewReview(event)">
+                <div class="dk-form-group">
+                    <label>نام شما (یا نام تعمیرگاه/فروشگاه) *</label>
+                    <input type="text" id="revAuthor" class="dk-input" placeholder="مثلاً: مکانیکی استاد رضایی" required>
+                </div>
+                <div class="dk-form-group">
+                    <label>امتیاز شما</label>
+                    <select id="revStars" class="dk-input">
+                        <option value="5">⭐⭐⭐⭐⭐ (۵ از ۵ - عالی و درجه یک)</option>
+                        <option value="4">⭐⭐⭐⭐ (۴ از ۵ - خوب)</option>
+                        <option value="3">⭐⭐⭐ (۳ از ۵ - معمولی)</option>
+                    </select>
+                </div>
+                <div class="dk-form-group">
+                    <label>متن دیدگاه و تجربه استفاده *</label>
+                    <textarea id="revText" rows="3" class="dk-input" placeholder="نظر خود را درباره کیفیت لاستیک، دوام و نصب روی خودرو بنویسید..." required></textarea>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="dk-btn-add" style="flex: 1;">ثبت دیدگاه</button>
+                    <button type="button" class="btn-header" onclick="closeModal('reviewModal')">انصراف</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- مودال ثبت پرسش جدید -->
+    <div class="dk-modal-overlay" id="qaModal">
+        <div class="dk-modal-card">
+            <h3 style="font-size: 1rem; font-weight: 800; margin-bottom: 14px;">ثبت پرسش جدید</h3>
+            <form onsubmit="submitNewQuestion(event)">
+                <div class="dk-form-group">
+                    <label>نام شما *</label>
+                    <input type="text" id="qaAuthor" class="dk-input" placeholder="مثلاً: علی محمدی" required>
+                </div>
+                <div class="dk-form-group">
+                    <label>متن پرسش فنی شما *</label>
+                    <textarea id="qaText" rows="3" class="dk-input" placeholder="مثلاً: آیا این شیلنگ به پراید ۱۱۱ مدل ۹۶ یورو ۴ هم می‌خورد؟" required></textarea>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="dk-btn-add" style="flex: 1;">ثبت پرسش</button>
+                    <button type="button" class="btn-header" onclick="closeModal('qaModal')">انصراف</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="toastMsg" class="toast-msg">عملیات با موفقیت انجام شد</div>
+
+    <script src="products.js"></script>
+    <script src="products-part2.js"></script>
+    <script src="script-part1.js"></script>
+
+    <script>
+        let currentProduct = null;
+        let currentReviewSort = 'newest';
+
+        function showToast(msg) {
+            const el = document.getElementById('toastMsg');
+            el.innerText = msg;
+            el.style.display = 'block';
+            setTimeout(() => { el.style.display = 'none'; }, 3000);
+        }
+
+        function activateTab(el) {
+            document.querySelectorAll('.dk-tab-link').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        function shareProductLink() {
+            const url = window.location.href;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url);
+                showToast('لینک صفحه محصول کپی شد 🔗');
+            } else {
+                prompt('لینک مستقیم این قطعه:', url);
+            }
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // تحلیل هوشمند قطعه و تولید اطلاعات فنی، ابعاد و خودروهای سازگار برای هر محصول
+        function generateSmartProductDetails(p) {
+            const name = p.name || '';
+            const code = String(p.code || p.id || '');
+            const car = p.carModel || 'پراید';
+            const brand = p.brand || 'پولاسا';
+
+            let compatCars = '';
+            if (car.includes('پراید') || name.includes('پراید')) {
+                if (name.includes('یورو ۴') || name.includes('یورو 4')) {
+                    compatCars = 'مناسب برای تمامی مدل‌های پراید یورو ۴ (پراید ۱۳۱، ۱۳۲، ۱۱۱ هاچ‌بک و وانت پراید ۱۵۱ تولید سال ۱۳۹۲ به بالا). همچنین در برخی مدل‌های تیبا ۱ با موتور M13 یورو ۴ قابل استفاده است.';
+                } else if (name.includes('CNG') || name.includes('دوگانه')) {
+                    compatCars = 'مخصوص تمامی مدل‌های پراید دوگانه‌سوز شرکتی و دستی (پراید صبا، ۱۳۱، ۱۳۲، ۱۴۱ و وانت ۱۵۱ دوگانه‌سوز).';
+                } else if (name.includes('انژکتور')) {
+                    compatCars = 'سازگار با تمامی خانواده پراید انژکتوری شامل: پراید صبا، نسیم، ۱۳۱، ۱۳۲، ۱۱۱ (هاچ‌بک)، ۱۴۱ و وانت پراید ۱۵۱.';
+                } else if (name.includes('نسیم') || name.includes('هاچ')) {
+                    compatCars = 'طراحی شده ویژه پراید نسیم (هاچ‌بک) و پراید ۱۱۱، و قابل نصب روی پراید صبا.';
+                } else {
+                    compatCars = 'قابل نصب بر روی تمام تیپ‌های خانواده پراید (پراید ۱۳۱، ۱۳۲، ۱۱۱ هاچ‌بک، صبا، نسیم، ۱۴۱ و وانت پراید ۱۵۱).';
+                }
+            } else if (car.includes('پژو') || name.includes('پژو') || name.includes('405')) {
+                compatCars = 'مناسب برای پژو ۴۰۵ (GLX و SLX)، پژو پارس (معمولی و سال) و سمند با موتور XU7.';
+            } else if (car.includes('تیبا') || name.includes('تیبا')) {
+                compatCars = 'سازگار با خودروهای تیبا ۱ (صندوق‌دار)، تیبا ۲ (هاچ‌بک)، ساینا و کوییک.';
+            } else {
+                compatCars = `مناسب برای خودروی ${car} و تیپ‌های هم‌خانواده مطابق با کد فنی فابریک ${code}.`;
+            }
+
+            let material = 'لاستیک سنتزی EPDM نخ‌دار مسلح (مقاوم در برابر حرارت و رسوب)';
+            let tempRange = '۴۰- الی ۱۲۵+ درجه سانتی‌گراد';
+            let pressureSpec = 'مقاوم تا فشار ۴.۵ بار (تست ترکیدگی شرکتی)';
+            let dimensions = 'قالب‌گیری ۳ بعدی فابریک (قطر و خمیدگی منطبق با نقشه OEM سایپا/ایران‌خودرو)';
+            let usageDesc = 'انتقال ایمن سیال بدون نشتی، ترک‌خوردگی یا دفرمه شدن در ترافیک و حرارت بالای موتور';
+
+            if (name.includes('بنزین') || name.includes('سوخت') || name.includes('باک') || name.includes('گاز')) {
+                material = 'لاستیک ضدبنزین NBR/FKM چهار لایه مسلح با الیاف پلی‌استر بافته‌شده';
+                tempRange = '۳۵- الی ۱۱۰+ درجه سانتی‌گراد (ضد خورندگی بنزین و بخار سوخت)';
+                pressureSpec = 'فشار قوی انژکتوری (تحمل فشار تا ۱۰ بار)';
+                usageDesc = 'انتقال ایمن سوخت و بخار بنزین بدون خشک‌شدگی، ترک‌های ریز و نشت بو در کابین';
+            } else if (name.includes('وکیوم') || name.includes('بوستر') || name.includes('خلا') || name.includes('ساکشن')) {
+                material = 'لاستیک فشرده تقویت‌شده ضد جمع‌شدگی (Anti-Collapse Vacuum Hose)';
+                pressureSpec = 'مقاوم در برابر مکش و خلأ بالای منیفولد و بوستر ترمز';
+                usageDesc = 'حفظ خلأ پایدار برای عملکرد نرم پدال ترمز و کارکرد دقیق موتور بدون نوسان دور آرام';
+            } else if (name.includes('بخار روغن') || name.includes('تهویه') || name.includes('PCV')) {
+                material = 'لاستیک ضدروغن و ضداسید NBR مقاوم در برابر بخارات داغ کارتر';
+                usageDesc = 'هدایت بخار روغن موتور و جلوگیری از روغن‌ریزی و گرفتگی سیستم تهویه موتور';
+            } else if (name.includes('فرمان') || name.includes('هیدرولیک')) {
+                material = 'شیلنگ فشار قوی چندلایه مسلح مخصوص روغن هیدرولیک (ATF)';
+                pressureSpec = 'تحمل فشار بالا در گردش کامل فرمان';
+            }
+
+            const sizeMatch = name.match(/(\d+(\.\d+)?)\s*(سانتی|میلیمتری|میلی‌متری)/);
+            if (sizeMatch) {
+                dimensions = `طول استاندارد ${sizeMatch[0]} (تولید شده با تلورانس دقیق کارخانه‌ای)`;
+            }
+
+            return {
+                compatCars,
+                material,
+                tempRange,
+                pressureSpec,
+                dimensions,
+                usageDesc,
+                warranty: 'ضمانت ۱۰۰٪ اصالت فیزیکی و گارانتی تعویض بی‌قید و شرط شرکت پولاسا (پخش حاج محمدی)'
+            };
+        }
+
+        function renderProductPage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const prodId = urlParams.get('id');
+            const allProducts = loadProducts();
+
+            currentProduct = allProducts.find(item => String(item.id) === String(prodId) || String(item.code) === String(prodId)) || allProducts[0];
+            if (!currentProduct) return;
+
+            const details = generateSmartProductDetails(currentProduct);
+            const userType = getUserType();
+            const activePrice = userType === 'wholesale' ? currentProduct.wholesalePrice : currentProduct.price;
+            const oldPrice = Math.round(activePrice * 1.12);
+
+            const seoTitle = currentProduct.seoTitle || `خرید و قیمت ${currentProduct.name} کد ${currentProduct.code} | پخش حاج محمدی`;
+            const seoDesc = currentProduct.seoDesc || `خرید عمده و تکی ${currentProduct.name} برند ${currentProduct.brand || 'پولاسا'} کد فنی ${currentProduct.code} با ضمانت اصالت از پخش قطعات خودرو حاج محمدی گنبد کاووس.`;
+            document.title = seoTitle;
+            document.getElementById('pageSeoDesc').setAttribute('content', seoDesc);
+            document.getElementById('ogTitle').setAttribute('content', seoTitle);
+            document.getElementById('ogDesc').setAttribute('content', seoDesc);
+
+            document.getElementById('bcCategory').innerText = currentProduct.category || 'شیلنگ‌های پولاسا';
+            document.getElementById('bcProductName').innerText = currentProduct.name;
+            document.getElementById('prodBrandTop').innerText = `${currentProduct.brand || 'پولاسا'} (نمایندگی رسمی)`;
+            document.getElementById('prodSubCatTop').innerText = currentProduct.subCategory || currentProduct.category || 'قطعات لاستیکی خودرو';
+            document.getElementById('prodMainTitle').innerText = currentProduct.name;
+            document.getElementById('prodEnCode').innerText = `POOLASA GENUINE PART | TECHNICAL CODE: ${currentProduct.code}`;
+            document.getElementById('compatibleCarsText').innerText = details.compatCars;
+
+            const primaryImg = (currentProduct.img && !currentProduct.img.startsWith('data:')) ? currentProduct.img : `images/${currentProduct.code}.webp`;
+            const fallbackSvg = (typeof generateSVGImage === 'function') ? generateSVGImage(currentProduct.name, currentProduct.code) : 'logo.jpg';
+            const mainImgEl = document.getElementById('mainProductImg');
+            mainImgEl.src = primaryImg;
+            mainImgEl.alt = currentProduct.imgAlt || `${currentProduct.name} کد ${currentProduct.code}`;
+            mainImgEl.onerror = function() { this.onerror = null; this.src = fallbackSvg; };
+
+            document.getElementById('thumbsContainer').innerHTML = `
+                <div class="dk-thumb-item active" onclick="switchMainImg('${primaryImg}', this)">
+                    <img src="${primaryImg}" onerror="this.src='${fallbackSvg}'" alt="نمای ۱">
+                </div>
+                <div class="dk-thumb-item" onclick="switchMainImg('${fallbackSvg}', this)">
+                    <img src="${fallbackSvg}" alt="شناسنامه فنی قطعه">
+                </div>
+                <div class="dk-thumb-item" onclick="switchMainImg('logo.jpg', this)">
+                    <img src="logo.jpg" alt="ضمانت پخش حاج محمدی">
+                </div>
+            `;
+
+            document.getElementById('featuresGrid').innerHTML = `
+                <div class="dk-feature-box">
+                    <span class="dk-feature-label">کد فنی شرکتی</span>
+                    <span class="dk-feature-val" dir="ltr">${currentProduct.code}</span>
+                </div>
+                <div class="dk-feature-box">
+                    <span class="dk-feature-label">برند سازنده</span>
+                    <span class="dk-feature-val">${currentProduct.brand || 'پولاسا (Poolasa)'}</span>
+                </div>
+                <div class="dk-feature-box">
+                    <span class="dk-feature-label">خودروی پایه</span>
+                    <span class="dk-feature-val">${currentProduct.carModel || 'پراید'}</span>
+                </div>
+                <div class="dk-feature-box">
+                    <span class="dk-feature-label">جنس متریال</span>
+                    <span class="dk-feature-val">لاستیک مسلح نسوز</span>
+                </div>
+                <div class="dk-feature-box">
+                    <span class="dk-feature-label">مقاومت حرارتی</span>
+                    <span class="dk-feature-val">${details.tempRange}</span>
+                </div>
+                <div class="dk-feature-box">
+                    <span class="dk-feature-label">نوع ضمانت</span>
+                    <span class="dk-feature-val">تعویض بی‌قید و شرط</span>
+                </div>
+            `;
+
+            document.getElementById('priceTierLabel').innerText = userType === 'wholesale' 
+                ? 'نرخ محاسبه‌شده: قیمت ویژه همکار (عمده)' 
+                : 'نرخ محاسبه‌شده: قیمت مصرف‌کننده';
+            document.getElementById('oldPriceDisplay').innerText = oldPrice.toLocaleString('fa-IR');
+            document.getElementById('discountBadge').innerText = userType === 'wholesale' ? 'نرخ عمده' : '۱۰٪ ویژه';
+            document.getElementById('activePriceDisplay').innerText = Number(activePrice).toLocaleString('fa-IR');
+
+            renderBuyButtonArea();
+
+            document.getElementById('fullIntroContent').innerHTML = `
+                <p>
+                    <strong>${currentProduct.name} (کد فنی: ${currentProduct.code})</strong> یکی از قطعات کلیدی و حساس در سیستم 
+                    <strong>${currentProduct.subCategory || 'موتور و خنک‌کاری'}</strong> خودروی <strong>${currentProduct.carModel || 'پراید'}</strong> است که توسط شرکت معتبر 
+                    <strong>${currentProduct.brand || 'پولاسا (Poolasa)'}</strong> مطابق با استانداردهای خط تولید خودروساز (OEM) طراحی و تولید شده است. 
+                    استفاده از شیلنگ‌ها و قطعات لاستیکی غیراستاندارد می‌تواند منجر به ترکیدگی ناگهانی در ترافیک، نشت آب یا سوخت، و وارد شدن خسارت‌های سنگین به سرسیلندر و موتور خودرو شود؛ به همین دلیل انتخاب قطعه اصلی پولاسا با کد رهگیری <strong>${currentProduct.code}</strong> بهترین تضمین برای سلامت خودروی شماست.
+                </p>
+                <h3>به چه خودروهایی می‌خورد و چه کاربردی دارد؟</h3>
+                <p>${details.compatCars}</p>
+                <p>وظیفه اصلی این قطعه، <strong>${details.usageDesc}</strong> است. به لطف قالب‌گیری دقیق سه‌بعدی، خم‌ها و دهانه‌های ورودی و خروجی این شیلنگ دقیقاً منطبق با لوله‌های فابریک خودرو بوده و هنگام نصب توسط مکانیک، هیچ‌گونه تاخوردگی (Kink) یا فشار اضافی به بست‌ها وارد نمی‌کند.</p>
+                <h3>مزایا و ویژگی‌های فنی در پخش حاج محمدی:</h3>
+                <ul>
+                    <li><strong>متریال درجه یک:</strong> ساخته شده از ${details.material}.</li>
+                    <li><strong>تحمل دما و فشار کاری بالا:</strong> پایداری کامل در بازه دمایی ${details.tempRange} و ${details.pressureSpec}.</li>
+                    <li><strong>ابعاد و سایز استاندارد:</strong> ${details.dimensions}.</li>
+                    <li><strong>ضمانت و گارانتی معتبر:</strong> ${details.warranty}.</li>
+                </ul>
+            `;
+
+            document.getElementById('specsTableContainer').innerHTML = `
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">نام کامل قطعه</div>
+                    <div class="dk-spec-val">${currentProduct.name}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">کد فنی / شناسه کالا</div>
+                    <div class="dk-spec-val" dir="ltr">${currentProduct.code}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">برند و شرکت سازنده</div>
+                    <div class="dk-spec-val">${currentProduct.brand || 'پولاسا (Poolasa)'} - ساخت ایران (تاییدیه ISO/TS 16949)</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">خودروهای سازگار</div>
+                    <div class="dk-spec-val">${details.compatCars}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">جنس بدنه و ساختار</div>
+                    <div class="dk-spec-val">${details.material}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">ابعاد و استاندارد قالب</div>
+                    <div class="dk-spec-val">${details.dimensions}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">مقاومت دمایی</div>
+                    <div class="dk-spec-val">${details.tempRange}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">مقاومت فشار</div>
+                    <div class="dk-spec-val">${details.pressureSpec}</div>
+                </div>
+                <div class="dk-spec-row">
+                    <div class="dk-spec-key">شرایط گارانتی و ضمانت</div>
+                    <div class="dk-spec-val">${details.warranty}</div>
+                </div>
+            `;
+
+            renderRelatedProducts(allProducts);
+            renderReviewsSection();
+            renderQaSection();
+            injectSchemaMarkup(seoTitle, seoDesc, primaryImg, activePrice);
+            updateHeaderBadge();
+        }
+
+        function switchMainImg(src, thumbEl) {
+            document.getElementById('mainProductImg').src = src;
+            document.querySelectorAll('.dk-thumb-item').forEach(el => el.classList.remove('active'));
+            thumbEl.classList.add('active');
+        }
+
+        function renderBuyButtonArea() {
+            const container = document.getElementById('buyActionContainer');
+            const cartItem = cart.find(i => String(i.id) === String(currentProduct.id));
+            const qty = cartItem ? cartItem.qty : 0;
+            const maxQty = getMaxAllowedQty();
+
+            if (qty > 0) {
+                container.innerHTML = `
+                    <div class="dk-qty-controller">
+                        <button type="button" class="dk-qty-btn" onclick="changeDetailQty(1)" ${qty >= maxQty ? 'disabled style="opacity:0.4;"' : ''}>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.95rem; font-weight: 900; color: var(--dk-red);">${qty.toLocaleString('fa-IR')} عدد در سبد</div>
+                            <a href="checkout.html" style="font-size: 0.72rem; color: var(--primary-green); font-weight: 800;">مشاهده و تکمیل سفارش &larr;</a>
+                        </div>
+                        <button type="button" class="dk-qty-btn" onclick="changeDetailQty(-1)">
+                            ${qty === 1 ? '<i class="fa-regular fa-trash-can"></i>' : '<i class="fa-solid fa-minus"></i>'}
+                        </button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <button type="button" class="dk-btn-add" onclick="changeDetailQty(1)">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>افزودن به سبد خرید</span>
+                    </button>
+                `;
+            }
+        }
+
+        function changeDetailQty(delta) {
+            const userType = getUserType();
+            const maxQty = getMaxAllowedQty();
+            const activePrice = userType === 'wholesale' ? currentProduct.wholesalePrice : currentProduct.price;
+
+            let idx = cart.findIndex(i => String(i.id) === String(currentProduct.id));
+            if (idx === -1 && delta > 0) {
+                cart.push({ ...currentProduct, price: activePrice, qty: 1 });
+                showToast('قطعه به سبد خرید اضافه شد ✅');
+            } else if (idx !== -1) {
+                if (delta > 0 && cart[idx].qty >= maxQty) {
+                    showToast(`حداکثر تعداد مجاز ${maxQty.toLocaleString('fa-IR')} عدد است.`);
+                    return;
+                }
+                cart[idx].qty += delta;
+                if (cart[idx].qty <= 0) cart.splice(idx, 1);
+            }
+
+            localStorage.setItem('hajMohammadi_cart', JSON.stringify(cart));
+            renderBuyButtonArea();
+            updateHeaderBadge();
+        }
+
+        function updateHeaderBadge() {
+            const total = cart.reduce((s, i) => s + i.qty, 0);
+            const badge = document.getElementById('headerCartBadge');
+            if (badge) {
+                if (total > 0) {
+                    badge.style.display = 'inline-block';
+                    badge.innerText = total.toLocaleString('fa-IR');
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+
+        function renderRelatedProducts(allProducts) {
+            const carousel = document.getElementById('relatedCarousel');
+            const userType = getUserType();
+            let related = allProducts.filter(p => String(p.id) !== String(currentProduct.id) && p.subCategory === currentProduct.subCategory);
+            if (related.length < 6) {
+                related = allProducts.filter(p => String(p.id) !== String(currentProduct.id)).slice(0, 8);
+            } else {
+                related = related.slice(0, 8);
+            }
+
+            carousel.innerHTML = '';
+            related.forEach(p => {
+                const price = userType === 'wholesale' ? p.wholesalePrice : p.price;
+                const imgSrc = (p.img && !p.img.startsWith('data:')) ? p.img : `images/${p.code}.webp`;
+                const fallback = (typeof generateSVGImage === 'function') ? generateSVGImage(p.name, p.code) : 'logo.jpg';
+
+                const card = document.createElement('a');
+                card.href = `product.html?id=${p.id}`;
+                card.className = 'dk-related-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="dk-related-badge">پیشنهاد ویژه همکاری</div>
+                        <img src="${imgSrc}" class="dk-related-img" onerror="this.onerror=null; this.src='${fallback}';" alt="${p.name}">
+                        <h3 class="dk-related-name">${p.name}</h3>
+                        <div class="dk-related-stock">
+                            <i class="fa-solid fa-box-check" style="color: var(--dk-blue);"></i>
+                            <span>موجود در انبار حاج محمدی</span>
+                        </div>
+                    </div>
+                    <div class="dk-related-price-row">
+                        <span class="dk-discount-pill" style="font-size: 0.68rem;">کد ${p.code}</span>
+                        <div style="font-size: 0.88rem; font-weight: 900; color: var(--text-main);">
+                            ${Number(price).toLocaleString('fa-IR')} <span style="font-size: 0.7rem;">تومان</span>
+                        </div>
+                    </div>
+                `;
+                carousel.appendChild(card);
+            });
+        }
+
+        function getProductReviews() {
+            const storageKey = `hajMohammadi_reviews_${currentProduct.id}`;
+            let saved = JSON.parse(localStorage.getItem(storageKey));
+            if (!saved) {
+                saved = [
+                    {
+                        id: 101,
+                        author: 'لوازم یدکی و مکانیکی خلیج فارس',
+                        date: '۵ آبان ۱۴۰۵',
+                        stars: 5,
+                        text: `جنس لاستیک ${currentProduct.name} واقعاً نرم و درجه یکه. ما برای مغازه به صورت عمده از پخش حاج محمدی تهیه می‌کنیم، هیچ‌کدوم از مشتری‌ها تا الان مشکل نشتی یا ترک خوردن نداشتن.`,
+                        likes: 6,
+                        dislikes: 0
+                    },
+                    {
+                        id: 102,
+                        author: 'مهدی رحیمی (تعمیرکار جلوبندی و موتور)',
+                        date: '۲ آبان ۱۴۰۵',
+                        stars: 5,
+                        text: `کد فنی ${currentProduct.code} پولاسا دقیقاً قالب فابریک کارخونه است و موقع بستن روی ماشین اصلاً تا نمی‌خوره. نسبت به مارک‌های متفرقه بازار طول عمر خیلی بیشتری داره.`,
+                        likes: 4,
+                        dislikes: 0
+                    }
+                ];
+                localStorage.setItem(storageKey, JSON.stringify(saved));
+            }
+            return saved;
+        }
+
+        function sortReviews(sortType, el) {
+            currentReviewSort = sortType;
+            document.querySelectorAll('.dk-sort-opt').forEach(o => o.classList.remove('active'));
+            el.classList.add('active');
+            renderReviewsSection();
+        }
+
+        function renderReviewsSection() {
+            let reviews = getProductReviews();
+            if (currentReviewSort === 'helpful') {
+                reviews = [...reviews].sort((a, b) => (b.likes || 0) - (a.likes || 0));
+            }
+
+            document.getElementById('topReviewCount').innerText = reviews.length.toLocaleString('fa-IR');
+            document.getElementById('reviewsTotalText').innerText = `${reviews.length.toLocaleString('fa-IR')} دیدگاه`;
+
+            const container = document.getElementById('reviewsListContainer');
+            container.innerHTML = '';
+
+            reviews.forEach(r => {
+                const div = document.createElement('div');
+                div.className = 'dk-review-card';
+                div.innerHTML = `
+                    <div class="dk-review-header">
+                        <div class="dk-reviewer-info">
+                            <span>${escapeHTML(r.author)}</span>
+                            <span class="dk-buyer-badge">خریدار</span>
+                            <span class="dk-review-date">• ${escapeHTML(r.date)}</span>
+                        </div>
+                        <div style="color: var(--star-yellow); font-size: 0.78rem;">
+                            ${'★'.repeat(r.stars || 5)}
+                        </div>
+                    </div>
+                    <div class="dk-review-body">${escapeHTML(r.text)}</div>
+                    <div class="dk-review-footer">
+                        <span><i class="fa-solid fa-store"></i> پخش حاج محمدی • قطعه اصلی شرکتی</span>
+                        <div class="dk-like-btns">
+                            <span>آیا این دیدگاه مفید بود؟</span>
+                            <button type="button" class="dk-like-btn" onclick="likeReview(${r.id}, 1)">
+                                <i class="fa-regular fa-thumbs-up"></i> ${(r.likes || 0).toLocaleString('fa-IR')}
+                            </button>
+                            <button type="button" class="dk-like-btn" onclick="likeReview(${r.id}, -1)">
+                                <i class="fa-regular fa-thumbs-down"></i> ${(r.dislikes || 0).toLocaleString('fa-IR')}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function likeReview(revId, type) {
+            const storageKey = `hajMohammadi_reviews_${currentProduct.id}`;
+            let reviews = getProductReviews();
+            let item = reviews.find(r => r.id === revId);
+            if (item) {
+                if (type === 1) item.likes = (item.likes || 0) + 1;
+                else item.dislikes = (item.dislikes || 0) + 1;
+                localStorage.setItem(storageKey, JSON.stringify(reviews));
+                renderReviewsSection();
+            }
+        }
+
+        function submitNewReview(e) {
+            e.preventDefault();
+            const author = document.getElementById('revAuthor').value.trim();
+            const stars = Number(document.getElementById('revStars').value);
+            const text = document.getElementById('revText').value.trim();
+
+            const storageKey = `hajMohammadi_reviews_${currentProduct.id}`;
+            let reviews = getProductReviews();
+            reviews.unshift({
+                id: Date.now(),
+                author,
+                date: new Date().toLocaleDateString('fa-IR'),
+                stars,
+                text,
+                likes: 0,
+                dislikes: 0
+            });
+
+            localStorage.setItem(storageKey, JSON.stringify(reviews));
+            document.getElementById('revAuthor').value = '';
+            document.getElementById('revText').value = '';
+            closeModal('reviewModal');
+            renderReviewsSection();
+            showToast('دیدگاه شما با موفقیت ثبت شد ✅');
+        }
+
+        function getProductQa() {
+            const storageKey = `hajMohammadi_qa_${currentProduct.id}`;
+            let saved = JSON.parse(localStorage.getItem(storageKey));
+            if (!saved) {
+                const details = generateSmartProductDetails(currentProduct);
+                saved = [
+                    {
+                        id: 201,
+                        author: 'رضا کاظمی',
+                        date: '۶ آبان ۱۴۰۵',
+                        question: `سلام، آیا این مدل (${currentProduct.name}) به همه مدل‌های ${currentProduct.carModel || 'پراید'} می‌خوره و ضمانت داره؟`,
+                        answer: `با سلام، بله؛ ${details.compatCars} همچنین تمامی محصولات پولاسا در پخش حاج محمدی دارای ضمانت اصالت و تعویض شرکتی هستند.`
+                    }
+                ];
+                localStorage.setItem(storageKey, JSON.stringify(saved));
+            }
+            return saved;
+        }
+
+        function renderQaSection() {
+            const qaList = getProductQa();
+            document.getElementById('topQaCount').innerText = qaList.length.toLocaleString('fa-IR');
+            document.getElementById('qaTotalText').innerText = `${qaList.length.toLocaleString('fa-IR')} پرسش`;
+
+            const container = document.getElementById('qaListContainer');
+            container.innerHTML = '';
+
+            qaList.forEach(q => {
+                const div = document.createElement('div');
+                div.className = 'dk-review-card';
+                div.innerHTML = `
+                    <div style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-circle-question" style="color: var(--dk-blue); font-size: 1.1rem;"></i>
+                        <span>${escapeHTML(q.question)}</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: var(--text-muted); margin-bottom: 8px;">
+                        پرسیده شده توسط <strong>${escapeHTML(q.author)}</strong> در تاریخ ${escapeHTML(q.date)}
+                    </div>
+                    ${q.answer ? `
+                        <div class="dk-qa-reply-box">
+                            <div style="font-size: 0.75rem; font-weight: 800; color: var(--primary-green); margin-bottom: 4px;">
+                                <i class="fa-solid fa-check-circle"></i> پاسخ کارشناس فروش (پخش حاج محمدی):
+                            </div>
+                            <div>${escapeHTML(q.answer)}</div>
+                        </div>
+                    ` : ''}
+                    <button type="button" class="dk-btn-reply-link" onclick="promptAnswer(${q.id})">
+                        <i class="fa-solid fa-pen"></i> ثبت پاسخ جدید
+                    </button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function submitNewQuestion(e) {
+            e.preventDefault();
+            const author = document.getElementById('qaAuthor').value.trim();
+            const question = document.getElementById('qaText').value.trim();
+
+            const storageKey = `hajMohammadi_qa_${currentProduct.id}`;
+            let qaList = getProductQa();
+            qaList.unshift({
+                id: Date.now(),
+                author,
+                date: new Date().toLocaleDateString('fa-IR'),
+                question,
+                answer: ''
+            });
+
+            localStorage.setItem(storageKey, JSON.stringify(qaList));
+            document.getElementById('qaAuthor').value = '';
+            document.getElementById('qaText').value = '';
+            closeModal('qaModal');
+            renderQaSection();
+            showToast('پرسش شما ثبت شد ✅');
+        }
+
+        function promptAnswer(qId) {
+            const ans = prompt('پاسخ خود را برای این پرسش بنویسید:');
+            if (!ans || !ans.trim()) return;
+
+            const storageKey = `hajMohammadi_qa_${currentProduct.id}`;
+            let qaList = getProductQa();
+            let item = qaList.find(q => q.id === qId);
+            if (item) {
+                item.answer = ans.trim();
+                localStorage.setItem(storageKey, JSON.stringify(qaList));
+                renderQaSection();
+                showToast('پاسخ شما با موفقیت ثبت شد ✅');
+            }
+        }
+
+        function injectSchemaMarkup(title, desc, imgUrl, priceToman) {
+            const schemaObj = {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": currentProduct.name,
+                "image": [imgUrl],
+                "description": desc,
+                "sku": String(currentProduct.code),
+                "mpn": String(currentProduct.code),
+                "brand": {
+                    "@type": "Brand",
+                    "name": currentProduct.brand || "پولاسا (Poolasa)"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "reviewCount": String(getProductReviews().length)
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "IRR",
+                    "price": String(Number(priceToman) * 10),
+                    "availability": "https://schema.org/InStock",
+                    "seller": {
+                        "@type": "Organization",
+                        "name": "پخش قطعات خودرو حاج محمدی"
+                    }
+                }
+            };
+            document.getElementById('productSchemaJson').textContent = JSON.stringify(schemaObj);
+        }
+
+        window.onload = function() {
+            renderProductPage();
+        };
+    </script>
+</body>
+</html>

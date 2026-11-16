@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<link rel="stylesheet" href="font.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت و مدیریت سفارشات | پخش قطعات خودرو حاج محمدی</title>
+    
+    <!-- حتماً کد امنیتی را همینجا، قبل از تمام استایل‌ها و لینک‌ها قرار دهید -->
+    <script>
+        (function protectAdminRoute() {
+            try {
+                const user = JSON.parse(localStorage.getItem('hajMohammadi_loggedUser'));
+                const allowed = ["09001795050", "89501068"];
+                if (!user || !user.authToken || !allowed.includes(String(user.phone).trim())) {
+                    window.location.replace('login.html');
+                }
+            } catch (e) {
+                window.location.replace('login.html');
+            }
+        })();
+    </script>
+
+    <!-- استایل‌ها و فونت‌ها در ادامه قرار می‌گیرند -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn-font@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* استایل‌های پنل ادمین */
+    </style>
+</head>
+<body>
+    <!-- محتوای صفحه ادمین -->
+</body>
+</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت و مدیریت سفارشات | پخش قطعات خودرو حاج محمدی</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn-font@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #0f382c;
+            --light-green: #2e7d32;
+            --light-green-hover: #1b5e20;
+            --accent-orange: #f57c00;
+            --danger-red: #dc2626;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-shadow: 0 4px 20px rgba(15, 56, 44, 0.04);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+        body { background-color: var(--bg-light); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+        header {
+            background: var(--card-bg); border-bottom: 1px solid var(--border-color);
+            padding: 14px 25px; position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .header-inner {
+            max-width: 1350px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+        }
+        .brand-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand-logo { width: 46px; height: 46px; border-radius: var(--radius-sm); object-fit: cover; border: 2px solid var(--light-green); }
+        .brand-title { font-size: 16px; font-weight: 800; color: var(--primary-green); }
+        .brand-sub { font-size: 11px; color: var(--text-muted); }
+
+        .admin-nav-actions { display: flex; align-items: center; gap: 10px; }
+        .btn-action {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #f1f5f9; color: var(--text-dark); text-decoration: none;
+            font-size: 13px; font-weight: 700; padding: 9px 16px; border-radius: var(--radius-md);
+            border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-base);
+        }
+        .btn-action:hover { background: #e2e8f0; }
+        .btn-action.primary { background: var(--primary-green); color: white; border-color: var(--primary-green); }
+        .btn-action.primary:hover { background: var(--light-green); }
+
+        .btn-bulk-magic {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #f57c00 0%, #ea580c 100%);
+            color: #fff; border: none; padding: 10px 18px; border-radius: var(--radius-md);
+            font-size: 13px; font-weight: 800; cursor: pointer;
+            box-shadow: 0 4px 14px rgba(245, 124, 0, 0.28); transition: var(--transition-base);
+        }
+        .btn-bulk-magic:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245, 124, 0, 0.38); }
+
+        .admin-container { max-width: 1350px; width: 100%; margin: 24px auto 50px; padding: 0 25px; }
+
+        .admin-tabs {
+            display: flex; gap: 10px; margin-bottom: 24px; border-bottom: 2px solid var(--border-color); padding-bottom: 12px; overflow-x: auto;
+        }
+        .tab-btn {
+            background: #f1f5f9; color: #475569; border: 1px solid var(--border-color);
+            padding: 10px 20px; border-radius: var(--radius-md); font-size: 13.5px; font-weight: 700;
+            cursor: pointer; display: flex; align-items: center; gap: 8px; white-space: nowrap; transition: var(--transition-base);
+        }
+        .tab-btn:hover { background: #e2e8f0; }
+        .tab-btn.active { background: var(--primary-green); color: white; border-color: var(--primary-green); box-shadow: 0 4px 12px rgba(15, 56, 44, 0.15); }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-bottom: 28px;
+        }
+        .stat-card {
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg);
+            padding: 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 16px;
+        }
+        .stat-icon {
+            width: 52px; height: 52px; border-radius: var(--radius-md); background: #f0fdf4; color: var(--light-green);
+            display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+        }
+        .stat-info h4 { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; }
+        .stat-info span { font-size: 20px; color: var(--primary-green); font-weight: 900; }
+
+        .admin-section { display: none; }
+        .admin-section.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .section-card {
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg);
+            padding: 24px; box-shadow: var(--card-shadow); margin-bottom: 24px;
+        }
+        .card-title {
+            font-size: 16px; font-weight: 800; color: var(--primary-green); margin-bottom: 20px;
+            padding-bottom: 10px; border-bottom: 1px dashed var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+        }
+
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 12px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+        .form-control {
+            width: 100%; padding: 11px 14px; background: #f8fafc; border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md); font-size: 13px; font-weight: 500; color: var(--text-dark); outline: none; transition: var(--transition-base);
+        }
+        .form-control:focus { background: #ffffff; border-color: var(--light-green); box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.08); }
+
+        .img-input-wrapper { display: flex; align-items: center; gap: 8px; }
+        .img-code-box {
+            position: relative; flex: 1; display: flex; align-items: center;
+            background: #f8fafc; border: 1.5px solid var(--border-color); border-radius: var(--radius-md);
+            overflow: hidden; direction: ltr;
+        }
+        .img-code-box:focus-within {
+            background: #fff; border-color: var(--light-green); box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.08);
+        }
+        .img-affix {
+            background: #e2e8f0; color: #475569; font-size: 12px; font-weight: 800;
+            padding: 11px 8px; user-select: none; white-space: nowrap;
+        }
+        .img-code-input {
+            border: none; background: transparent; padding: 11px 8px; width: 100%;
+            font-size: 13.5px; font-weight: 800; color: var(--primary-green); outline: none; text-align: center;
+        }
+        .img-preview-thumb {
+            width: 44px; height: 44px; border-radius: 8px; border: 1.5px solid var(--border-color);
+            object-fit: contain; background: #fff; flex-shrink: 0; padding: 2px;
+        }
+
+        .admin-filter-bar {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border-color); align-items: center;
+        }
+        .admin-chip {
+            padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+            border: 1px solid var(--border-color); background: #f8fafc; color: #475569;
+            cursor: pointer; transition: var(--transition-base);
+        }
+        .admin-chip:hover { background: #e2e8f0; }
+        .admin-chip.active { background: var(--primary-green); color: #fff; border-color: var(--primary-green); }
+
+        .table-responsive { width: 100%; overflow-x: auto; }
+        .admin-table { width: 100%; border-collapse: collapse; text-align: right; font-size: 13px; }
+        .admin-table th { background: #f8fafc; color: #334155; font-weight: 800; padding: 12px 14px; border-bottom: 2px solid var(--border-color); white-space: nowrap; }
+        .admin-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-color); color: var(--text-dark); vertical-align: middle; }
+        .admin-table tr:hover { background: #f8fafc; }
+
+        .table-thumb {
+            width: 46px; height: 46px; border-radius: 8px; object-fit: contain;
+            border: 1px solid var(--border-color); background: #fff; padding: 2px;
+        }
+
+        .inline-price-box { display: flex; align-items: center; gap: 6px; }
+        .inline-price-input {
+            width: 105px; padding: 6px 8px; border: 1.5px solid #cbd5e1; border-radius: 6px;
+            font-size: 13px; font-weight: 800; color: var(--primary-green); text-align: center;
+        }
+        .btn-save-inline {
+            background: var(--light-green); color: white; border: none; padding: 6px 10px;
+            border-radius: 6px; font-size: 11.5px; font-weight: 700; cursor: pointer; white-space: nowrap;
+        }
+        .btn-save-inline:hover { background: var(--light-green-hover); }
+
+        .status-badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 800; }
+        .status-pending { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+        .status-done { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+        .status-custom { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+
+        .btn-sm { padding: 6px 12px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 700; cursor: pointer; border: none; transition: var(--transition-base); }
+        .btn-edit { background: #e0f2fe; color: #0369a1; }
+        .btn-edit:hover { background: #bae6fd; }
+        .btn-delete { background: #fee2e2; color: #b91c1c; }
+        .btn-delete:hover { background: #fecaca; }
+
+        .highlight-edit-card {
+            border-color: var(--accent-orange) !important;
+            box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.15) !important;
+        }
+
+        .toast-admin {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            background: #0f382c; color: #fff; padding: 12px 22px; border-radius: 12px;
+            font-size: 13px; font-weight: 700; display: none; z-index: 3000;
+            box-shadow: 0 10px 25px rgba(15, 56, 44, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="admin.html" class="brand-area">
+                <img src="logo.jpg" alt="لوگو" class="brand-logo" onerror="this.src='https://via.placeholder.com/46?text=پخش';">
+                <div>
+                    <div class="brand-title">پنل مدیریت پخش حاج محمدی</div>
+                    <div class="brand-sub">کنترل سفارشات، کاتالوگ کامل قطعات و همکاران</div>
+                </div>
+            </a>
+
+            <div class="admin-nav-actions">
+                <a href="index.html" class="btn-action">
+                    <i class="fa-solid fa-store"></i> مشاهده سایت
+                </a>
+                <button onclick="logoutAdmin()" class="btn-action" style="background:#fee2e2; color:#b91c1c; border-color:#fecaca;">
+                    <i class="fa-solid fa-right-from-bracket"></i> خروج
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="stat-info">
+                    <h4>کل سفارشات ثبت شده</h4>
+                    <span id="statTotalOrders">۰</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:#eff6ff; color:#1d4ed8;"><i class="fa-solid fa-boxes-stacked"></i></div>
+                <div class="stat-info">
+                    <h4>کل قطعات فعال در کاتالوگ</h4>
+                    <span id="statTotalProducts">۰</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:#fff7ed; color:#c2410c;"><i class="fa-solid fa-handshake"></i></div>
+                <div class="stat-info">
+                    <h4>همکاران عمده ثبت‌شده</h4>
+                    <span id="statTotalWholesale">۰</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="tab-btn active" id="tabBtn-orders" onclick="switchTab('orders')"><i class="fa-solid fa-receipt"></i> سفارشات مشتریان</button>
+            <button class="tab-btn" id="tabBtn-products" onclick="switchTab('products')"><i class="fa-solid fa-box"></i> مدیریت کاتالوگ و قیمت‌ها</button>
+            <button class="tab-btn" id="tabBtn-wholesale" onclick="switchTab('wholesale')"><i class="fa-solid fa-users-gear"></i> مدیریت همکاران (عمده)</button>
+        </div>
+
+        <!-- تب ۱: سفارشات مشتریان -->
+        <div id="section-orders" class="admin-section active">
+            <div class="section-card">
+                <div class="card-title">
+                    <span><i class="fa-solid fa-list-check"></i> لیست سفارشات ثبت شده از سایت</span>
+                    <button onclick="loadOrdersTable()" class="btn-sm btn-edit"><i class="fa-solid fa-rotate"></i> به‌روزرسانی</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>کد سفارش</th>
+                                <th>نام مشتری</th>
+                                <th>موبایل</th>
+                                <th>شهر و آدرس</th>
+                                <th>روش ارسال</th>
+                                <th>مبلغ کل (تومان)</th>
+                                <th>تاریخ ثبت</th>
+                                <th>وضعیت</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- تب ۲: مدیریت محصولات -->
+        <div id="section-products" class="admin-section">
+            <div class="section-card" id="productFormCard">
+                <div class="card-title">
+                    <span id="productFormTitle"><i class="fa-solid fa-plus-circle"></i> افزودن قطعه جدید یا ویرایش کاتالوگ</span>
+                    <!-- دکمه جادویی اتصال یکجای تمام عکس‌ها از روی کد فنی -->
+                    <button type="button" class="btn-bulk-magic" onclick="bulkAssignAllWebpImages()">
+                        <i class="fa-solid fa-images"></i> اتصال خودکار عکس تمام کالاها از روی کد (۱ کلیک)
+                    </button>
+                </div>
+                <form id="productForm" onsubmit="saveCustomProduct(event)">
+                    <input type="hidden" id="editProductId">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>نام قطعه *</label>
+                            <input type="text" id="pName" class="form-control" placeholder="مثلاً: شیلنگ آب رادیاتور پراید" required>
+                        </div>
+                        <div class="form-group">
+                            <label>کد فنی / کد کالا</label>
+                            <input type="text" id="pCode" class="form-control" placeholder="مثلاً: 31302" oninput="syncCodeToImgInput(this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>برند قطعه</label>
+                            <select id="pBrand" class="form-control">
+                                <option value="پولاسا">پولاسا (Poolasa)</option>
+                                <option value="کوژ">کوژ (Kouzh)</option>
+                                <option value="TSP">TSP</option>
+                                <option value="متفرقه">سایر برندها</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>مدل خودرو</label>
+                            <input type="text" id="pCar" class="form-control" placeholder="مثلاً: پراید / پژو 405">
+                        </div>
+                        <div class="form-group">
+                            <label>قیمت همکار / عمده (تومان) *</label>
+                            <input type="number" id="pWholesale" class="form-control" placeholder="مثلاً: 467500" required>
+                        </div>
+                        <div class="form-group">
+                            <label>کد عکس (فقط عدد/نام فایل را بزنید؛ خودش .webp می‌گذارد)</label>
+                            <div class="img-input-wrapper">
+                                <div class="img-code-box">
+                                    <span class="img-affix">images/</span>
+                                    <input type="text" id="pImg" class="img-code-input" placeholder="31302" oninput="updateLiveImgPreview()">
+                                    <span class="img-affix">.webp</span>
+                                </div>
+                                <img id="liveImgPreview" src="logo.jpg" class="img-preview-thumb" title="پیش‌نمایش عکس" onerror="this.src='logo.jpg'">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                        <button type="submit" class="btn-action primary" id="saveProductBtn"><i class="fa-solid fa-check"></i> ثبت تغییرات قطعه</button>
+                        <button type="button" onclick="useProductCodeForImg()" class="btn-action" style="background:#f0fdf4; color:#15803d; border-color:#bbf7d0;">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> ست کردن عکس همین قطعه از روی کد
+                        </button>
+                        <button type="button" onclick="resetProductForm()" class="btn-action" id="cancelEditBtn" style="display:none;">انصراف از ویرایش</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section-card">
+                <div class="card-title">
+                    <span><i class="fa-solid fa-table-cells"></i> لیست کامل قطعات کاتالوگ (<span id="filteredCountText">۰</span> قطعه)</span>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <input type="text" id="adminProductSearch" class="form-control" style="width: 280px; padding: 9px 14px;" placeholder="جستجوی نام یا کد قطعه (مثلاً 31302)..." oninput="loadAdminProductsTable()">
+                    </div>
+                </div>
+
+                <!-- نوار فیلتر خودرو و دسته‌بندی -->
+                <div class="admin-filter-bar">
+                    <span style="font-size: 12px; font-weight: 800; color: var(--primary-green); margin-left: 4px;">
+                        <i class="fa-solid fa-filter"></i> فیلتر خودرو و وضعیت:
+                    </span>
+                    <button type="button" class="admin-chip active" onclick="setAdminCarFilter('همه', this)">همه قطعات</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('پراید', this)">پراید</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('پژو', this)">پژو (405 / پارس / 206)</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('سمند', this)">سمند / دنا / رانا</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('تیبا', this)">تیبا / ساینا / کوییک / شاهین</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('پیکان', this)">پیکان / آردی / روا</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('نیسان', this)">نیسان / وانت</button>
+                    <button type="button" class="admin-chip" onclick="setAdminCarFilter('edited', this)" style="border-color:#93c5fd; color:#1d4ed8;">
+                        <i class="fa-solid fa-pen-check"></i> فقط ویرایش‌شده‌ها / سفارشی
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>تصویر</th>
+                                <th>کد کالا</th>
+                                <th>نام قطعه</th>
+                                <th>خودرو</th>
+                                <th>قیمت همکار (تومان) — ثبت آنی</th>
+                                <th>قیمت مصرف‌کننده (+۱۰٪)</th>
+                                <th>نوع</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminProductsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- تب ۳: مدیریت همکاران -->
+        <div id="section-wholesale" class="admin-section">
+            <div class="section-card">
+                <div class="card-title">
+                    <span><i class="fa-solid fa-user-plus"></i> ثبت شماره موبایل همکاران (عمده‌فروشی)</span>
+                </div>
+                <form onsubmit="saveWholesaleUser(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>نام همکار / فروشگاه *</label>
+                            <input type="text" id="whName" class="form-control" placeholder="مثلاً: لوازم یدکی خلیج فارس" required>
+                        </div>
+                        <div class="form-group">
+                            <label>شماره موبایل (۱۱ رقمی) *</label>
+                            <input type="tel" id="whPhone" class="form-control" placeholder="0911..." dir="ltr" style="text-align: right;" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-action primary" style="margin-top: 10px;">
+                        <i class="fa-solid fa-shield-check"></i> ثبت به عنوان همکار عمده
+                    </button>
+                </form>
+            </div>
+
+            <div class="section-card">
+                <div class="card-title">
+                    <span><i class="fa-solid fa-address-book"></i> لیست شماره‌های همکار فعال در سیستم</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>نام همکار / فروشگاه</th>
+                                <th>شماره موبایل</th>
+                                <th>سطح دسترسی</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wholesaleUsersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="adminToast" class="toast-admin">تغییرات با موفقیت ذخیره شد ✅</div>
+
+    <script src="products.js"></script>
+    <script src="products-part2.js"></script>
+
+    <script>
+    // همگام‌سازی کاتالوگ با سرور
+   async function saveProductsToServer() {
+    const products = JSON.parse(localStorage.getItem('hajMohammadi_products') || '[]');
+    const deletedIds = JSON.parse(localStorage.getItem('hajMohammadi_deletedIds') || '[]');
+    const user = JSON.parse(localStorage.getItem('hajMohammadi_loggedUser') || '{}');
+    const token = user.token || user.authToken;
+
+    if (!token) return; // اگر لاگین نیست، همگام‌سازی نکن
+
+    try {
+        const response = await fetch('/api/admin/products', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            body: JSON.stringify({ products, deletedIds })
+        });
+        
+        if (!response.ok) throw new Error('سرور پاسخ نداد');
+        console.log('با موفقیت همگام‌سازی شد.');
+    } catch (err) {
+        console.warn('عدم اتصال به سرور - تغییرات فقط محلی ذخیره شدند:', err);
+        // اینجا کد اضافه شد که سایت از کار نیفتد
+    }
+}
+
+
+        async function saveProductsToServer() {
+            try {
+                const products = JSON.parse(localStorage.getItem('hajMohammadi_products') || '[]');
+                const deletedIds = JSON.parse(localStorage.getItem('hajMohammadi_deletedIds') || '[]');
+                const user = JSON.parse(localStorage.getItem('hajMohammadi_loggedUser') || 'null');
+                if (!user || !user.authToken) return;
+
+                const response = await fetch('/api/admin/products', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${user.authToken}`
+                    },
+                    body: JSON.stringify({ products, deletedIds })
+                });
+                if (!response.ok) console.error('Product sync failed:', response.status, response.statusText);
+            } catch (error) {
+                console.error('Product sync failed:', error);
+            }
+        }
+
+        let currentAdminCarFilter = 'همه';
+
+        function toEnglishDigits(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
+                .trim();
+        }
+
+        function showAdminToast(msg) {
+            const t = document.getElementById('adminToast');
+            if (!t) return;
+            t.innerText = msg;
+            t.style.display = 'block';
+            setTimeout(() => { t.style.display = 'none'; }, 3500);
+        }
+
+        function normalizeWebpImagePath(rawInput) {
+            if (!rawInput) return '';
+            let clean = toEnglishDigits(rawInput.trim());
+
+            if (clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('data:')) {
+                return clean;
+            }
+
+            clean = clean.replace(/^(\/?images\/)+/i, '').replace(/^\/+/, '');
+            if (!clean) return '';
+
+            if (!/\.(webp|jpg|jpeg|png|svg|gif)$/i.test(clean)) {
+                clean = clean + '.webp';
+            }
+
+            return 'images/' + clean;
+        }
+
+        function extractCleanCodeFromPath(imgPath) {
+            if (!imgPath || imgPath.startsWith('data:')) return '';
+            if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) return imgPath;
+            return imgPath
+                .replace(/^(\/?images\/)+/i, '')
+                .replace(/^\/+/, '')
+                .replace(/\.webp$/i, '');
+        }
+
+        // دکمه ۱ کلیکی: ست کردن خودکار عکس تمام کالاها از روی کد فنی (images/کد.webp)
+        function bulkAssignAllWebpImages() {
+            let allProducts = getAllCatalogProductsForAdmin();
+            if (allProducts.length === 0) return;
+
+            let updatedList = allProducts.map(p => {
+                let cleanCode = toEnglishDigits(String(p.code || p.id || '').trim());
+                return {
+                    id: isNaN(Number(p.id)) ? p.id : Number(p.id),
+                    name: p.name,
+                    code: cleanCode,
+                    brand: p.brand || 'پولاسا',
+                    carModel: p.carModel || 'پراید',
+                    category: p.category || 'شیلنگ',
+                    wholesalePrice: p.wholesalePrice,
+                    price: p.price,
+                    img: cleanCode ? `images/${cleanCode}.webp` : p.img
+                };
+            });
+
+            localStorage.setItem('hajMohammadi_products', JSON.stringify(updatedList));
+            saveProductsToServer();
+            saveProductsToServer();
+            loadStatsAndData();
+            showAdminToast(`عکس تمام ${updatedList.length.toLocaleString('fa-IR')} قطعه به صورت خودکار روی images/کد.webp تنظیم شد! ✅`);
+        }
+
+        // ثبت آنی قیمت از داخل ردیف جدول
+        function quickUpdatePrice(productId) {
+            const inputEl = document.getElementById(`priceInput-${productId}`);
+            if (!inputEl) return;
+
+            const newWholesale = Number(toEnglishDigits(inputEl.value));
+            if (isNaN(newWholesale) || newWholesale <= 0) {
+                alert('لطفاً یک مبلغ معتبر وارد کنید.');
+                return;
+            }
+
+            const newRetail = Math.round(newWholesale * 1.10);
+            let allProds = getAllCatalogProductsForAdmin();
+            let targetProd = allProds.find(item => String(item.id) === String(productId));
+            if (!targetProd) return;
+
+            let customProducts = JSON.parse(localStorage.getItem('hajMohammadi_products')) || [];
+            let idx = customProducts.findIndex(item => String(item.id) === String(productId));
+
+            let cleanCode = toEnglishDigits(String(targetProd.code || targetProd.id));
+            let finalImg = (targetProd.img && !targetProd.img.startsWith('data:')) ? targetProd.img : `images/${cleanCode}.webp`;
+
+            let updatedObj = {
+                id: isNaN(Number(targetProd.id)) ? targetProd.id : Number(targetProd.id),
+                name: targetProd.name,
+                code: cleanCode,
+                brand: targetProd.brand || 'پولاسا',
+                carModel: targetProd.carModel || 'پراید',
+                category: targetProd.category || 'شیلنگ',
+                wholesalePrice: newWholesale,
+                price: newRetail,
+                img: finalImg
+            };
+
+            if (idx !== -1) customProducts[idx] = updatedObj;
+            else customProducts.unshift(updatedObj);
+
+            localStorage.setItem('hajMohammadi_products', JSON.stringify(customProducts));
+            saveProductsToServer();
+            saveProductsToServer();
+            loadAdminProductsTable();
+            showAdminToast(`قیمت «${targetProd.name}» به ${newWholesale.toLocaleString('fa-IR')} تومان تغییر یافت ✅`);
+        }
+
+        function updateLiveImgPreview() {
+            const rawVal = document.getElementById('pImg').value.trim();
+            const previewEl = document.getElementById('liveImgPreview');
+            if (!rawVal) {
+                previewEl.src = 'logo.jpg';
+                return;
+            }
+            previewEl.src = normalizeWebpImagePath(rawVal);
+        }
+
+        function syncCodeToImgInput(codeVal) {
+            const imgInput = document.getElementById('pImg');
+            if (!imgInput.value.trim()) {
+                imgInput.value = toEnglishDigits(codeVal);
+                updateLiveImgPreview();
+            }
+        }
+
+        function useProductCodeForImg() {
+            const codeVal = toEnglishDigits(document.getElementById('pCode').value.trim());
+            if (!codeVal) {
+                alert('ابتدا کد فنی / کد کالا را وارد کنید.');
+                return;
+            }
+            document.getElementById('pImg').value = codeVal;
+            updateLiveImgPreview();
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.admin-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            const targetSection = document.getElementById(`section-${tabName}`);
+            const targetBtn = document.getElementById(`tabBtn-${tabName}`);
+            if (targetSection) targetSection.classList.add('active');
+            if (targetBtn) targetBtn.classList.add('active');
+        }
+
+        function setAdminCarFilter(filterKey, btnEl) {
+            currentAdminCarFilter = filterKey;
+            document.querySelectorAll('.admin-chip').forEach(b => b.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+            loadAdminProductsTable();
+        }
+
+        function getAllCatalogProductsForAdmin() {
+            let p1 = typeof poolasaProductsPart1 !== 'undefined' ? poolasaProductsPart1 : [];
+            let p2 = typeof poolasaProductsPart2 !== 'undefined' ? poolasaProductsPart2 : [];
+            let p3 = typeof poolasaProductsPart3 !== 'undefined' ? poolasaProductsPart3 : [];
+            let baseProducts = (typeof poolasaProducts !== 'undefined' && poolasaProducts.length > 0) ? poolasaProducts : [...p1, ...p2, ...p3];
+
+            let customProducts = JSON.parse(localStorage.getItem('hajMohammadi_products')) || [];
+            let deletedIds = JSON.parse(localStorage.getItem('hajMohammadi_deletedIds')) || [];
+
+            let fixedAny = false;
+            customProducts = customProducts.map(item => {
+                if (item.img && !item.img.startsWith('data:') && (item.img.includes('images/images/') || item.img.startsWith('/images/'))) {
+                    item.img = normalizeWebpImagePath(item.img);
+                    fixedAny = true;
+                }
+                return item;
+            });
+            if (fixedAny) {
+                localStorage.setItem('hajMohammadi_products', JSON.stringify(customProducts));
+            }
+
+            let combined = customProducts
+                .filter(p => !deletedIds.includes(String(p.id)))
+                .map(p => ({ ...p, isCustomOrEdited: true }));
+
+            baseProducts.forEach(p => {
+                if (deletedIds.includes(String(p.id))) return;
+                if (!combined.some(item => String(item.id) === String(p.id))) {
+                    let rawWholesale = p.wholesalePrice || p.price || 0;
+                    let wholesaleToman = rawWholesale > 100000 ? Math.round(rawWholesale / 10) : rawWholesale;
+                    let retailToman = Math.round(wholesaleToman * 1.10);
+                    let cleanCode = p.code ? String(p.code) : String(p.id);
+
+                    combined.push({
+                        id: p.id,
+                        name: p.name,
+                        code: cleanCode,
+                        carModel: p.carModel || 'پراید',
+                        category: p.category || p.cat || 'شیلنگ',
+                        brand: p.brand || 'پولاسا',
+                        wholesalePrice: wholesaleToman,
+                        price: retailToman,
+                        // به صورت پیش‌فرض عکس webp هم‌نام با کد کالا را ست می‌کند
+                        img: `images/${cleanCode}.webp`,
+                        isCustomOrEdited: false
+                    });
+                }
+            });
+
+            return combined;
+        }
+
+        function loadStatsAndData() {
+            let orders = JSON.parse(localStorage.getItem('hajMohammadi_orders')) || [];
+            let allProducts = getAllCatalogProductsForAdmin();
+            let wholesaleList = JSON.parse(localStorage.getItem('hajMohammadi_wholesaleUsers')) || [];
+
+            document.getElementById('statTotalOrders').innerText = orders.length.toLocaleString('fa-IR');
+            document.getElementById('statTotalProducts').innerText = allProducts.length.toLocaleString('fa-IR');
+            document.getElementById('statTotalWholesale').innerText = (wholesaleList.length + 2).toLocaleString('fa-IR');
+
+            loadOrdersTable();
+            loadAdminProductsTable();
+            loadWholesaleUsersTable();
+        }
+
+        function loadOrdersTable() {
+            let orders = JSON.parse(localStorage.getItem('hajMohammadi_orders')) || [];
+            const tbody = document.getElementById('ordersTableBody');
+            tbody.innerHTML = '';
+
+            if (orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; color:#64748b; padding:30px;">هنوز سفارشی از سایت ثبت نشده است.</td></tr>`;
+                return;
+            }
+
+            orders.forEach((ord, index) => {
+                let statusBadge = ord.status === 'تایید شده' 
+                    ? `<span class="status-badge status-done">تایید شده</span>` 
+                    : `<span class="status-badge status-pending">${ord.status || 'در انتظار بررسی'}</span>`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${ord.id}</strong></td>
+                    <td>${ord.customerName}</td>
+                    <td dir="ltr">${ord.customerPhone}</td>
+                    <td>${ord.city} - ${ord.address}</td>
+                    <td>${ord.shippingMethod}</td>
+                    <td style="font-weight:bold; color:var(--light-green);">${Number(ord.totalPrice).toLocaleString('fa-IR')}</td>
+                    <td style="font-size:11px; color:#64748b;">${ord.date}</td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <button onclick="toggleOrderStatus(${index})" class="btn-sm btn-edit">تغییر وضعیت</button>
+                        <button onclick="deleteOrder(${index})" class="btn-sm btn-delete">حذف</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function toggleOrderStatus(index) {
+            let orders = JSON.parse(localStorage.getItem('hajMohammadi_orders')) || [];
+            orders[index].status = orders[index].status === 'تایید شده' ? 'در انتظار بررسی' : 'تایید شده';
+            localStorage.setItem('hajMohammadi_orders', JSON.stringify(orders));
+            loadOrdersTable();
+        }
+
+        function deleteOrder(index) {
+            if (confirm('آیا از حذف این سفارش اطمینان دارید؟')) {
+                let orders = JSON.parse(localStorage.getItem('hajMohammadi_orders')) || [];
+                orders.splice(index, 1);
+                localStorage.setItem('hajMohammadi_orders', JSON.stringify(orders));
+                loadStatsAndData();
+            }
+        }
+
+        function saveCustomProduct(e) {
+            e.preventDefault();
+            let editId = document.getElementById('editProductId').value;
+            let name = document.getElementById('pName').value.trim();
+            let code = toEnglishDigits(document.getElementById('pCode').value.trim());
+            let brand = document.getElementById('pBrand').value;
+            let car = document.getElementById('pCar').value.trim();
+            let wholesale = Number(toEnglishDigits(document.getElementById('pWholesale').value));
+            
+            let rawImgInput = document.getElementById('pImg').value.trim() || code;
+            let img = normalizeWebpImagePath(rawImgInput);
+
+            let retail = Math.round(wholesale * 1.10);
+            let customProducts = JSON.parse(localStorage.getItem('hajMohammadi_products')) || [];
+
+            if (editId) {
+                let existingIndex = customProducts.findIndex(item => String(item.id) === String(editId));
+                
+                let updatedObj = {
+                    id: isNaN(Number(editId)) ? editId : Number(editId),
+                    name,
+                    code: code || String(editId),
+                    brand,
+                    carModel: car || 'پراید',
+                    wholesalePrice: wholesale,
+                    price: retail,
+                    img: img || `images/${code || editId}.webp`
+                };
+
+                if (existingIndex !== -1) customProducts[existingIndex] = updatedObj;
+                else customProducts.unshift(updatedObj);
+            } else {
+                let finalCode = code || String(Math.floor(10000 + Math.random() * 90000));
+                customProducts.unshift({
+                    id: 'custom-' + Date.now(),
+                    name,
+                    code: finalCode,
+                    brand,
+                    carModel: car || 'عمومی',
+                    wholesalePrice: wholesale,
+                    price: retail,
+                    img: img || `images/${finalCode}.webp`
+                });
+            }
+
+            localStorage.setItem('hajMohammadi_products', JSON.stringify(customProducts));
+            saveProductsToServer();
+            saveProductsToServer();
+            resetProductForm();
+            loadStatsAndData();
+            showAdminToast('مشخصات و تصویر قطعه با موفقیت ذخیره شد ✅');
+        }
+
+        function loadAdminProductsTable() {
+            let allProducts = getAllCatalogProductsForAdmin();
+            const searchVal = toEnglishDigits((document.getElementById('adminProductSearch')?.value || '').trim().toLowerCase());
+            const tbody = document.getElementById('adminProductsTableBody');
+            tbody.innerHTML = '';
+
+            if (currentAdminCarFilter !== 'همه') {
+                allProducts = allProducts.filter(p => {
+                    if (currentAdminCarFilter === 'edited') return p.isCustomOrEdited === true;
+
+                    let combinedText = ((p.name || '') + ' ' + (p.carModel || '')).toLowerCase();
+                    if (currentAdminCarFilter === 'پراید') return combinedText.includes('پراید') || combinedText.includes('131') || combinedText.includes('111') || combinedText.includes('صبا') || combinedText.includes('نسیم');
+                    if (currentAdminCarFilter === 'پژو') return combinedText.includes('پژو') || combinedText.includes('405') || combinedText.includes('پارس') || combinedText.includes('206') || combinedText.includes('207');
+                    if (currentAdminCarFilter === 'سمند') return combinedText.includes('سمند') || combinedText.includes('سورن') || combinedText.includes('دنا') || combinedText.includes('رانا');
+                    if (currentAdminCarFilter === 'تیبا') return combinedText.includes('تیبا') || combinedText.includes('ساینا') || combinedText.includes('کوییک') || combinedText.includes('شاهین') || combinedText.includes('اطلس');
+                    if (currentAdminCarFilter === 'پیکان') return combinedText.includes('پیکان') || combinedText.includes('آردی') || combinedText.includes('روا') || combinedText.includes('باردو');
+                    if (currentAdminCarFilter === 'نیسان') return combinedText.includes('نیسان') || combinedText.includes('وانت') || combinedText.includes('مزدا') || combinedText.includes('آریسان');
+                    return combinedText.includes(currentAdminCarFilter.toLowerCase());
+                });
+            }
+
+            if (searchVal) {
+                allProducts = allProducts.filter(p => 
+                    (p.name || '').toLowerCase().includes(searchVal) ||
+                    toEnglishDigits(p.code || '').toLowerCase().includes(searchVal) ||
+                    (p.carModel || '').toLowerCase().includes(searchVal)
+                );
+            }
+
+            document.getElementById('filteredCountText').innerText = allProducts.length.toLocaleString('fa-IR');
+
+            if (allProducts.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#64748b; padding:25px;">قطعه‌ای با این فیلتر یا مشخصات یافت نشد.</td></tr>`;
+                return;
+            }
+
+            allProducts.forEach((p) => {
+                let badgeType = p.isCustomOrEdited 
+                    ? `<span class="status-badge status-custom">ثبت‌شده</span>` 
+                    : `<span class="status-badge status-done">کاتالوگ اصلی</span>`;
+
+                let displayImg = (p.img && !p.img.startsWith('data:')) ? p.img : `images/${p.code}.webp`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><img src="${displayImg}" class="table-thumb" onerror="this.src='logo.jpg'"></td>
+                    <td><strong dir="ltr">${p.code}</strong></td>
+                    <td><strong>${p.name}</strong></td>
+                    <td>${p.carModel || 'پراید'}</td>
+                    <td>
+                        <div class="inline-price-box">
+                            <input type="number" id="priceInput-${p.id}" class="inline-price-input" value="${p.wholesalePrice}">
+                            <button type="button" onclick="quickUpdatePrice('${p.id}')" class="btn-save-inline">ثبت قیمت</button>
+                        </div>
+                    </td>
+                    <td style="font-weight:700;">${Number(p.price).toLocaleString('fa-IR')}</td>
+                    <td>${badgeType}</td>
+                    <td>
+                        <button onclick="editProduct('${p.id}')" class="btn-sm btn-edit"><i class="fa-solid fa-pen"></i> ویرایش</button>
+                        <button onclick="deleteProduct('${p.id}')" class="btn-sm btn-delete"><i class="fa-solid fa-trash"></i> حذف</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function editProduct(id) {
+            let allProducts = getAllCatalogProductsForAdmin();
+            let p = allProducts.find(item => String(item.id) === String(id));
+            if (!p) {
+                alert('قطعه مورد نظر در کاتالوگ یافت نشد!');
+                return;
+            }
+
+            switchTab('products');
+
+            document.getElementById('editProductId').value = p.id;
+            document.getElementById('pName').value = p.name || '';
+            document.getElementById('pCode').value = p.code || p.id || '';
+            document.getElementById('pBrand').value = p.brand || 'پولاسا';
+            document.getElementById('pCar').value = p.carModel || 'پراید';
+            document.getElementById('pWholesale').value = p.wholesalePrice || 0;
+
+            let cleanImgCode = extractCleanCodeFromPath(p.img);
+            document.getElementById('pImg').value = cleanImgCode || String(p.code || p.id || '');
+            updateLiveImgPreview();
+
+            document.getElementById('productFormTitle').innerHTML = `<i class="fa-solid fa-pen-to-square" style="color:var(--accent-orange);"></i> در حال ویرایش قطعه: <span style="color:var(--accent-orange);">${p.name} (کد: ${p.code})</span>`;
+            document.getElementById('saveProductBtn').innerHTML = `<i class="fa-solid fa-check"></i> ثبت تغییرات قطعه`;
+            document.getElementById('cancelEditBtn').style.display = 'inline-flex';
+
+            const formCard = document.getElementById('productFormCard');
+            formCard.classList.add('highlight-edit-card');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetProductForm() {
+            document.getElementById('productForm').reset();
+            document.getElementById('editProductId').value = '';
+            document.getElementById('liveImgPreview').src = 'logo.jpg';
+            document.getElementById('productFormTitle').innerHTML = '<i class="fa-solid fa-plus-circle"></i> افزودن قطعه جدید یا ویرایش کاتالوگ';
+            document.getElementById('saveProductBtn').innerHTML = '<i class="fa-solid fa-check"></i> ثبت تغییرات قطعه';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+            document.getElementById('productFormCard').classList.remove('highlight-edit-card');
+
+            if (window.location.search.includes('edit=')) {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+
+        function deleteProduct(id) {
+            if (confirm('آیا از حذف این قطعه از کاتالوگ مطمئن هستید؟')) {
+                let customProducts = JSON.parse(localStorage.getItem('hajMohammadi_products')) || [];
+                customProducts = customProducts.filter(item => String(item.id) !== String(id));
+                localStorage.setItem('hajMohammadi_products', JSON.stringify(customProducts));
+
+                let deletedIds = JSON.parse(localStorage.getItem('hajMohammadi_deletedIds')) || [];
+                if (!deletedIds.includes(String(id))) {
+                    deletedIds.push(String(id));
+                    localStorage.setItem('hajMohammadi_deletedIds', JSON.stringify(deletedIds));
+            saveProductsToServer();
+                }
+                saveProductsToServer();
+
+                loadStatsAndData();
+                showAdminToast('قطعه مورد نظر حذف شد.');
+            }
+        }
+
+        function saveWholesaleUser(e) {
+            e.preventDefault();
+            let name = document.getElementById('whName').value.trim();
+            let phone = toEnglishDigits(document.getElementById('whPhone').value.trim());
+
+            let list = JSON.parse(localStorage.getItem('hajMohammadi_wholesaleUsers')) || [];
+            list.push({ name, phone, role: 'wholesale' });
+            localStorage.setItem('hajMohammadi_wholesaleUsers', JSON.stringify(list));
+
+            document.getElementById('whName').value = '';
+            document.getElementById('whPhone').value = '';
+            loadStatsAndData();
+            showAdminToast('همکار جدید ثبت شد ✅');
+        }
+
+        function loadWholesaleUsersTable() {
+            let list = JSON.parse(localStorage.getItem('hajMohammadi_wholesaleUsers')) || [];
+            const tbody = document.getElementById('wholesaleUsersTableBody');
+            tbody.innerHTML = '';
+
+            let defaultWholesale = [
+                { name: 'همکار پیش‌فرض سیستم (۰۹۱۱۰۰۰۰۰۰۰)', phone: '09110000000', role: 'wholesale' },
+                { name: 'همکار همایونی (۰۹۱۱۱۷۹۵۰۵۰)', phone: '09111795050', role: 'wholesale' }
+            ];
+
+            let allWholesale = [...defaultWholesale, ...list];
+
+            allWholesale.forEach((u, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${u.name}</strong></td>
+                    <td dir="ltr">${u.phone}</td>
+                    <td><span class="status-badge status-done">همکار عمده</span></td>
+                    <td>${index >= 2 ? `<button onclick="deleteWholesale(${index - 2})" class="btn-sm btn-delete">حذف</button>` : '<span style="color:#94a3b8; font-size:11px;">پیش‌فرض</span>'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deleteWholesale(index) {
+            let list = JSON.parse(localStorage.getItem('hajMohammadi_wholesaleUsers')) || [];
+            list.splice(index, 1);
+            localStorage.setItem('hajMohammadi_wholesaleUsers', JSON.stringify(list));
+            loadStatsAndData();
+        }
+
+        function logoutAdmin() {
+            localStorage.removeItem('hajMohammadi_loggedUser');
+            localStorage.removeItem('poolasa_user');
+            window.location.href = 'index.html';
+        }
+
+        function checkUrlEditParam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const editId = urlParams.get('edit');
+            if (editId) {
+                editProduct(editId);
+            }
+        }
+
+       // محافظ امنیتی پنل مدیریت (بر اساس استاندارد امنیتی ECC)
+function verifyAdminAccess() {
+    const loggedUser = JSON.parse(localStorage.getItem('hajMohammadi_loggedUser')) || JSON.parse(localStorage.getItem('poolasa_user'));
+    const allowedAdmins = ["09001795050", "89501068"];
+    const userPhone = loggedUser ? toEnglishDigits(loggedUser.phone || '') : '';
+
+    if (!loggedUser || (!allowedAdmins.includes(userPhone) && loggedUser.role !== 'admin')) {
+        alert('دسترسی غیرمجاز! لطفاً ابتدا با شماره مدیریت وارد شوید.');
+        window.location.href = 'login.html';
+        return false;
+    }
+    return true;
+}
+
+window.onload = function() {
+    if (!verifyAdminAccess()) return;
+    loadStatsAndData();
+    checkUrlEditParam();
+};
+    </script>
+</body>
+</html>

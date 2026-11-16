@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل ویزیتورها و ثبت سفارش | پخش قطعات خودرو حاج محمدی</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn-font@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #0f382c;
+            --light-green: #2e7d32;
+            --light-green-hover: #1b5e20;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --card-shadow: 0 4px 20px rgba(15, 56, 44, 0.04);
+            --transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+        header {
+            background: var(--card-bg); border-bottom: 1px solid var(--border-color);
+            padding: 14px 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .header-inner {
+            max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+        }
+        .brand-title { font-size: 16px; font-weight: 800; color: var(--primary-green); }
+
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 25px; width: 100%; flex: 1; }
+
+        .card {
+            background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg);
+            padding: 30px; box-shadow: var(--card-shadow); margin-bottom: 24px;
+        }
+
+        .form-control {
+            width: 100%; padding: 12px 14px; background: #f8fafc; border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md); font-size: 13.5px; outline: none; transition: var(--transition-base);
+        }
+        .form-control:focus { background: #fff; border-color: var(--light-green); box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.08); }
+
+        .btn {
+            background: var(--light-green); color: white; border: none; padding: 12px 20px;
+            border-radius: var(--radius-md); font-weight: 800; font-size: 14px; cursor: pointer; transition: var(--transition-base);
+        }
+        .btn:hover { background: var(--light-green-hover); }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="brand-title"><i class="fa-solid fa-clipboard-user" style="color:var(--light-green);"></i> پنل ویزیتورها و بازاریابان</div>
+            <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 700;">
+                <i class="fa-solid fa-arrow-right"></i> بازگشت به سایت
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- فرم ورود ویزیتور -->
+        <div class="card" id="loginCard" style="max-width: 440px; margin: 40px auto; text-align: center;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: #f0fdf4; color: var(--light-green); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px;">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h2 style="font-size: 18px; font-weight: 800; color: var(--primary-green); margin-bottom: 8px;">ورود به پنل ویزیتور</h2>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 22px;">شماره تماس ثبت‌شده خود را وارد کنید</p>
+            
+            <div style="text-align: right; margin-bottom: 18px;">
+                <label style="font-size: 12.5px; font-weight: 700; display: block; margin-bottom: 6px;">شماره موبایل:</label>
+                <input type="tel" id="visitorPhoneInput" class="form-control" placeholder="مثلاً: 0911..." dir="ltr" style="text-align: right;">
+            </div>
+            
+            <button class="btn" style="width: 100%;" onclick="loginVisitor()">ورود به پنل ویزیتور</button>
+        </div>
+
+        <!-- داشبورد اصلی ویزیتور -->
+        <div class="card hidden" id="dashboardCard">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px dashed var(--border-color); padding-bottom: 15px;">
+                <div>
+                    <h3 style="font-size: 17px; font-weight: 800; color: var(--primary-green);">خوش آمدید، <span id="visitorNameDisplay" style="color: var(--light-green);">ویزیتور عزیز</span></h3>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">ثبت سفارش برای مشتریان و همکاران منطقه گنبد و استان گلستان</p>
+                </div>
+                <button class="btn" onclick="logoutVisitor()" style="background: #fee2e2; color: #dc2626;">خروج از حساب</button>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px; text-align: center;">
+                <i class="fa-solid fa-store" style="font-size: 36px; color: var(--light-green); margin-bottom: 10px;"></i>
+                <h4 style="font-size: 15px; font-weight: 800; margin-bottom: 6px;">ثبت سفارش جدید برای مغازه‌دار</h4>
+                <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 15px;">می‌توانید کاتالوگ قطعات را مشاهده کرده و برای مشتریان خود فاکتور ثبت کنید.</p>
+                <a href="index.html" class="btn" style="display: inline-block; text-decoration: none;">رفتن به کاتالوگ قطعات</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toEnglishDigits(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+                .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
+                .trim();
+        }
+
+        function loginVisitor() {
+            const rawPhone = document.getElementById('visitorPhoneInput').value;
+            const phone = toEnglishDigits(rawPhone);
+
+            if (!phone) {
+                alert('لطفاً شماره تماس خود را وارد کنید.');
+                return;
+            }
+
+            // لیست ویزیتورهای مجاز ثبت‌شده در سیستم
+            let visitors = [
+                { phone: '09119999999', name: 'ویزیتور ارشد منطقه' },
+                { phone: '09001795050', name: 'مدیر سیستم (حاج محمدی)' }
+            ];
+
+            let customVisitors = JSON.parse(localStorage.getItem('hajMohammadi_visitors')) || [];
+            let allVisitors = [...visitors, ...customVisitors];
+
+            let found = allVisitors.find(v => toEnglishDigits(v.phone) === phone);
+
+            if (!found && phone !== '09001795050') {
+                alert('شماره تماس شما به عنوان ویزیتور در سیستم شناخته نشد.');
+                return;
+            }
+
+            let currentVisitor = found || { phone: phone, name: 'ویزیتور فروش' };
+            localStorage.setItem('hajMohammadi_currentVisitor', JSON.stringify(currentVisitor));
+            showDashboard(currentVisitor);
+        }
+
+        function showDashboard(visitor) {
+            document.getElementById('loginCard').classList.add('hidden');
+            document.getElementById('dashboardCard').classList.remove('hidden');
+            document.getElementById('visitorNameDisplay').innerText = visitor.name;
+        }
+
+        function logoutVisitor() {
+            localStorage.removeItem('hajMohammadi_currentVisitor');
+            window.location.reload();
+        }
+
+        window.onload = function() {
+            let saved = localStorage.getItem('hajMohammadi_currentVisitor');
+            if (saved) {
+                try {
+                    showDashboard(JSON.parse(saved));
+                } catch(e) {
+                    localStorage.removeItem('hajMohammadi_currentVisitor');
+                }
+            }
+        };
+    </script>
+</body>
+</html>
